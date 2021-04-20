@@ -4,13 +4,17 @@ public class Friend {
 
     private int id;
 
+    // Only Joanna is the user of the app
+    private boolean user;
+
     private String name;
     private String b64ProfilePicture;
 
-    public Friend(int id, String name, String b64ProfilePicture) {
+    public Friend(int id, String name, String b64ProfilePicture, boolean user) {
         this.id = id;
         this.name = name;
         this.b64ProfilePicture = b64ProfilePicture;
+        this.user = user;
     }
 
     public int getId() {
@@ -35,6 +39,14 @@ public class Friend {
 
     public void setB64ProfilePicture(String b64ProfilePicture) {
         this.b64ProfilePicture = b64ProfilePicture;
+    }
+
+    public boolean isUser() {
+        return user;
+    }
+
+    public void setUser(boolean user) {
+        this.user = user;
     }
 }
 

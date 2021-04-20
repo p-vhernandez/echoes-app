@@ -62,13 +62,13 @@ public class SplashActivity extends AppCompatActivity {
 
     private void generateFriends() {
         ArrayList<Friend> friends = new ArrayList<>();
-        friends.add(new Friend(1, "Joanna Mills", echoesApplication.imageEncoder(R.drawable.you)));
-        friends.add(new Friend(2, "Caroline Black", echoesApplication.imageEncoder(R.drawable.caroline)));
-        friends.add(new Friend(3, "Amy Adams", echoesApplication.imageEncoder(R.drawable.amy)));
-        friends.add(new Friend(4, "Frank Benson", echoesApplication.imageEncoder(R.drawable.frank)));
-        friends.add(new Friend(4, "Mike Geller", echoesApplication.imageEncoder(R.drawable.mike)));
-        friends.add(new Friend(4, "Billy Jackson", echoesApplication.imageEncoder(R.drawable.billy)));
-        friends.add(new Friend(4, "Mark Jobs", echoesApplication.imageEncoder(R.drawable.mark)));
+        friends.add(new Friend(1, "Joanna Mills", echoesApplication.imageEncoder(R.drawable.you), true));
+        friends.add(new Friend(2, "Caroline Black", echoesApplication.imageEncoder(R.drawable.caroline), false));
+        friends.add(new Friend(3, "Amy Adams", echoesApplication.imageEncoder(R.drawable.amy), false));
+        friends.add(new Friend(4, "Frank Benson", echoesApplication.imageEncoder(R.drawable.frank), false));
+        friends.add(new Friend(4, "Mike Geller", echoesApplication.imageEncoder(R.drawable.mike), false));
+        friends.add(new Friend(4, "Billy Jackson", echoesApplication.imageEncoder(R.drawable.billy), false));
+        friends.add(new Friend(4, "Mark Jobs", echoesApplication.imageEncoder(R.drawable.mark), false));
 
 
         echoesApplication.setFriends(friends);
@@ -77,6 +77,11 @@ public class SplashActivity extends AppCompatActivity {
     private void generateMoods() {
         //TODO
         ArrayList<Mood> moods = new ArrayList<>();
+        moods.add(new Mood(1, "", "Happy"));
+        moods.add(new Mood(2, "", "Sad"));
+        moods.add(new Mood(3, "", "Excited"));
+        moods.add(new Mood(4, "", "Angry"));
+
         echoesApplication.setMoods(moods);
     }
 
