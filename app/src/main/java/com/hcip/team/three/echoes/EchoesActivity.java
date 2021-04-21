@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.hcip.team.three.echoes.model.Echo;
 import com.hcip.team.three.echoes.model.Friend;
 
 public class EchoesActivity extends AppCompatActivity {
@@ -24,6 +25,10 @@ public class EchoesActivity extends AppCompatActivity {
     private void initialize() {
         for (Friend friend : echoesApplication.getFriends()) {
             Log.e("friend:", friend.getName());
+        }
+
+        for (Echo echo : echoesApplication.getEchoes()) {
+            Log.e("echo:", echo.getTitle());
         }
     }
 }

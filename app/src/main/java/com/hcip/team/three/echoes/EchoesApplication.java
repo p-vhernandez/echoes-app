@@ -1,5 +1,6 @@
 package com.hcip.team.three.echoes;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,7 +11,10 @@ import com.hcip.team.three.echoes.model.Friend;
 import com.hcip.team.three.echoes.model.Mood;
 
 import java.io.ByteArrayOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EchoesApplication extends Application {
 
@@ -49,6 +53,21 @@ public class EchoesApplication extends Application {
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
 
         return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public Date dateFromString(String dateString) {
+        try {
+            return new SimpleDateFormat("dd MMM yyyy").parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String stringFromDate(Date date) {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM yyyy");
+        return simpleDateFormat.format(date);
     }
 
 }

@@ -55,8 +55,21 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void generateEchoes() {
-        //TODO
+        // TODO: add whatever attributes we feel like adding - discuss
         ArrayList<Echo> echoes = new ArrayList<>();
+        Echo echo1 = new Echo(1, 1, "Happy holiday times!", echoesApplication.dateFromString("17 Jul 2020"));
+        echo1.addImage(echoesApplication.imageEncoder(R.drawable.echo1));
+        echoes.add(echo1);
+
+        Echo echo2 = new Echo(2, 1, "Fun times with my friends", echoesApplication.dateFromString("07 Mar 2021"));
+        echo1.addImage(echoesApplication.imageEncoder(R.drawable.echo2));
+        echoes.add(echo2);
+
+        // Not created by Joanna
+        Echo echo3 = new Echo(3, 6, "First day at my new workplace!", echoesApplication.dateFromString("11 Apr 2021"));
+        echo1.addImage(echoesApplication.imageEncoder(R.drawable.echo3));
+        echoes.add(echo3);
+
         echoesApplication.setEchoes(echoes);
     }
 
@@ -66,16 +79,16 @@ public class SplashActivity extends AppCompatActivity {
         friends.add(new Friend(2, "Caroline Black", echoesApplication.imageEncoder(R.drawable.caroline), false));
         friends.add(new Friend(3, "Amy Adams", echoesApplication.imageEncoder(R.drawable.amy), false));
         friends.add(new Friend(4, "Frank Benson", echoesApplication.imageEncoder(R.drawable.frank), false));
-        friends.add(new Friend(4, "Mike Geller", echoesApplication.imageEncoder(R.drawable.mike), false));
-        friends.add(new Friend(4, "Billy Jackson", echoesApplication.imageEncoder(R.drawable.billy), false));
-        friends.add(new Friend(4, "Mark Jobs", echoesApplication.imageEncoder(R.drawable.mark), false));
+        friends.add(new Friend(5, "Mike Geller", echoesApplication.imageEncoder(R.drawable.mike), false));
+        friends.add(new Friend(6, "Billy Jackson", echoesApplication.imageEncoder(R.drawable.billy), false));
+        friends.add(new Friend(7, "Mark Jobs", echoesApplication.imageEncoder(R.drawable.mark), false));
 
 
         echoesApplication.setFriends(friends);
     }
 
     private void generateMoods() {
-        //TODO
+        //TODO: which moods will be available? - discuss
         ArrayList<Mood> moods = new ArrayList<>();
         moods.add(new Mood(1, "", "Happy"));
         moods.add(new Mood(2, "", "Sad"));
