@@ -23,12 +23,12 @@ public class EchoesActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        for (Friend friend : echoesApplication.getFriends()) {
-            Log.e("friend:", friend.getName());
-        }
-
-        for (Echo echo : echoesApplication.getEchoes()) {
-            Log.e("echo:", echo.getTitle());
-        }
+//        for (Friend friend : echoesApplication.getFriends()) {
+//            Log.e("friend:", friend.getName());
+//        }
+//
+//        for (Echo echo : echoesApplication.getEchoes()) {
+//            Log.e("echo:", echo.getTitle());
+//        }
     }
 }
