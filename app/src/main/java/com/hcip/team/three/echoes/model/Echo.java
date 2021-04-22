@@ -19,10 +19,10 @@ public class Echo {
 
     // TODO: add audio to the Echo
 
-    public Echo(int id, int creator, String title, Date date) {
+    public Echo(int id, int creator, Date date) {
         this.id = id;
         this.creator = creator;
-        this.title = title;
+        this.date = date;
     }
 
     public int getId() {

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/first_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/creator_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/creator_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_profile_amy" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="70dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/creator_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/creator_image"
+            app:layout_constraintTop_toTopOf="@id/creator_image">
+
+            <TextView
+                style="@style/EchoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/echo_title" />
+
+            <TextView
+                style="@style/EchoDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/echo_date" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/echo_single_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/single_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_echo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_row" />
+
+    <View
+        android:id="@+id/mood_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_row" />
+
+    <ImageView
+        android:id="@+id/mood_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-20dp"
+        android:contentDescription="@string/mood_image"
+        android:src="@drawable/ic_mood_fascinated"
+        app:layout_constraintStart_toStartOf="@id/echo_single_image"
+        app:layout_constraintTop_toBottomOf="@id/mood_constraint" />
+
+    <LinearLayout
+        android:id="@+id/location_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/mood_image"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/blue_accent"
+            android:contentDescription="@string/location_icon" />
+
+        <TextView
+            style="@style/EchoLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/echo_location" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
