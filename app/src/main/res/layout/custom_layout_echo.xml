@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/creator_image"
+            android:id="@+id/creator_image_card"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:cardCornerRadius="50dp"
@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/creator_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:contentDescription="@string/creator_image"
@@ -36,18 +37,20 @@
             android:layout_height="match_parent"
             android:layout_marginStart="70dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/creator_image"
+            app:layout_constraintBottom_toBottomOf="@id/creator_image_card"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/creator_image"
-            app:layout_constraintTop_toTopOf="@id/creator_image">
+            app:layout_constraintStart_toEndOf="@id/creator_image_card"
+            app:layout_constraintTop_toTopOf="@id/creator_image_card">
 
             <TextView
+                android:id="@+id/echo_title"
                 style="@style/EchoTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/echo_title" />
 
             <TextView
+                android:id="@+id/echo_date"
                 style="@style/EchoDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +66,7 @@
         android:layout_height="200dp"
         app:cardCornerRadius="14dp"
         android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/first_row">
@@ -71,6 +75,7 @@
             android:id="@+id/echo_single_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/single_image"
             android:scaleType="centerCrop"
             android:src="@drawable/img_echo1" />
@@ -113,6 +118,7 @@
             android:contentDescription="@string/location_icon" />
 
         <TextView
+            android:id="@+id/echo_location"
             style="@style/EchoLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

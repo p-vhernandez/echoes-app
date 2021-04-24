@@ -18,12 +18,16 @@ public class Echo implements Comparable<Echo>{
 
     private Date date;
 
+    private boolean hasMood;
+
     // TODO: add audio to the Echo
 
     public Echo(int id, int creator, Date date) {
         this.id = id;
         this.creator = creator;
         this.date = date;
+
+        this.hasMood = false;
     }
 
     public int getId() {
@@ -108,11 +112,19 @@ public class Echo implements Comparable<Echo>{
 
     public void setMood(int mood) {
         this.mood = mood;
+        this.hasMood = true;
     }
 
     @Override
     public int compareTo(Echo echo) {
-        return 0;
+        return this.getDate().compareTo(echo.date);
     }
 
+    public boolean isHasMood() {
+        return hasMood;
+    }
+
+    public void setHasMood(boolean hasMood) {
+        this.hasMood = hasMood;
+    }
 }

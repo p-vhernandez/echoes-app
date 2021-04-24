@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Base64;
 
 import com.hcip.team.three.echoes.model.Echo;
@@ -46,13 +50,25 @@ public class EchoesApplication extends Application {
         this.moods = moods;
     }
 
-    public String imageEncoder(int drawable) {
+    public String imageEncoder(int drawable, boolean isPNG) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), drawable);
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+
+        if (isPNG) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        } else {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        }
+
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
 
         return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+    }
+
+    public Drawable imageDecoder(String b64Image) {
+        byte[] decodedString = Base64.decode(b64Image, Base64.DEFAULT);
+        Bitmap bitmap =  BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return new BitmapDrawable(getResources(), bitmap);
     }
 
     @SuppressLint("SimpleDateFormat")

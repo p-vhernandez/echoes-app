@@ -6,22 +6,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
 import com.hcip.team.three.echoes.model.Echo;
+import com.hcip.team.three.echoes.model.Friend;
+import com.hcip.team.three.echoes.model.Mood;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EchoesAdapter extends BaseAdapter {
+
+    private EchoesApplication echoesApplication;
 
     private final Context context;
     private ArrayList<Echo> allEchoes;
 
-    public EchoesAdapter(Context context, ArrayList<Echo> allEchoes) {
+    public EchoesAdapter(Context context, EchoesApplication echoesApplication, ArrayList<Echo> allEchoes) {
         this.context = context;
+        this.echoesApplication = echoesApplication;
         this.allEchoes = allEchoes;
     }
-
 
     @Override
     public int getCount() {
@@ -45,11 +53,35 @@ public class EchoesAdapter extends BaseAdapter {
 
         try {
             Echo echo = allEchoes.get(position);
+            Friend creator = echoesApplication.getFriends().get(echo.getCreator());
+            Mood mood = null;
+
+            if (echo.isHasMood()) {
+                mood = echoesApplication.getMoods().get(echo.getMood());
+            }
+
+            TextView echoTitle = row.findViewById(R.id.echo_title);
+            TextView echoDate = row.findViewById(R.id.echo_date);
+
+            ImageView creatorImage = row.findViewById(R.id.creator_image);
+            ImageView echoSingleImage = row.findViewById(R.id.echo_single_image);
+            ImageView echoMood = row.findViewById(R.id.mood_image);
+
+            echoTitle.setText(echo.getTitle());
+            echoDate.setText(echoesApplication.stringFromDate(echo.getDate()));
+
+            creatorImage.setImageDrawable(echoesApplication.imageDecoder(creator.getB64ProfilePicture()));
+            echoMood.setImageDrawable(echoesApplication.imageDecoder(Objects.requireNonNull(mood).getMoodImage()));
+
+            if (echo.getB64Pictures().size() == 1) {
+                echoSingleImage.setImageDrawable(echoesApplication.imageDecoder(echo.getB64Pictures().get(0)));
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null;
+        return row;
     }
 }
