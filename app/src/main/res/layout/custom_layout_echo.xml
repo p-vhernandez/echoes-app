@@ -57,17 +57,25 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/echo_single_image"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/echo_single_image_card"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        app:cardCornerRadius="14dp"
         android:layout_marginTop="20dp"
-        android:contentDescription="@string/single_image"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_echo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_row" />
+        app:layout_constraintTop_toBottomOf="@id/first_row">
+
+        <ImageView
+            android:id="@+id/echo_single_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/single_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_echo1" />
+
+    </androidx.cardview.widget.CardView>
 
     <View
         android:id="@+id/mood_constraint"
@@ -82,10 +90,10 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="-20dp"
         android:contentDescription="@string/mood_image"
         android:src="@drawable/ic_mood_fascinated"
-        app:layout_constraintStart_toStartOf="@id/echo_single_image"
+        android:elevation="2dp"
+        app:layout_constraintStart_toStartOf="@id/echo_single_image_card"
         app:layout_constraintTop_toBottomOf="@id/mood_constraint" />
 
     <LinearLayout
@@ -100,7 +108,8 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@color/blue_accent"
+            android:padding="4dp"
+            android:src="@drawable/ic_location"
             android:contentDescription="@string/location_icon" />
 
         <TextView

@@ -3,10 +3,11 @@ package com.hcip.team.three.echoes.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Echo {
+public class Echo implements Comparable<Echo>{
 
     private int id;
     private int creator;
+    private int mood;
 
     private String title;
     private String description;
@@ -100,4 +101,18 @@ public class Echo {
     public void setCreator(int creator) {
         this.creator = creator;
     }
+
+    public int getMood() {
+        return mood;
+    }
+
+    public void setMood(int mood) {
+        this.mood = mood;
+    }
+
+    @Override
+    public int compareTo(Echo echo) {
+        return 0;
+    }
+
 }
