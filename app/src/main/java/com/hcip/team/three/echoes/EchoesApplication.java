@@ -18,6 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class EchoesApplication extends Application {
@@ -35,6 +36,8 @@ public class EchoesApplication extends Application {
     }
 
     public ArrayList<Echo> getEchoes() {
+        Collections.sort(echoes);
+        Collections.reverse(echoes);
         return echoes;
     }
 
@@ -74,7 +77,7 @@ public class EchoesApplication extends Application {
     @SuppressLint("SimpleDateFormat")
     public Date dateFromString(String dateString) {
         try {
-            return new SimpleDateFormat("dd MMM yyyy").parse(dateString);
+            return new SimpleDateFormat("dd/MM/yyyy").parse(dateString);
         } catch (ParseException e) {
             e.printStackTrace();
             return null;

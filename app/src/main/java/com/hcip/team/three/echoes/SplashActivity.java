@@ -3,9 +3,12 @@ package com.hcip.team.three.echoes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.hcip.team.three.echoes.activities.MainActivity;
 import com.hcip.team.three.echoes.model.Echo;
@@ -24,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         echoesApplication = (EchoesApplication) getApplication();
+
         splashScreen();
     }
 
@@ -46,20 +50,20 @@ public class SplashActivity extends AppCompatActivity {
 
     private void generateEchoes() {
         ArrayList<Echo> echoes = new ArrayList<>();
-        Echo echo1 = new Echo(0, 1, echoesApplication.dateFromString("17 Jul 2020"));
+        Echo echo1 = new Echo(0, 1, echoesApplication.dateFromString("17/07/2020"));
         echo1.addImage(echoesApplication.imageEncoder(R.drawable.img_echo1, false));
         echo1.setMood(2);
         echo1.setTitle("Fun times with my friends");
         echoes.add(echo1);
 
-        Echo echo2 = new Echo(1, 1, echoesApplication.dateFromString("07 Mar 2021"));
+        Echo echo2 = new Echo(1, 1, echoesApplication.dateFromString("07/03/2021"));
         echo2.addImage(echoesApplication.imageEncoder(R.drawable.img_echo2, false));
         echo2.setMood(4);
         echo2.setTitle("Tbt times with no covid :(");
         echoes.add(echo2);
 
         // Not created by Joanna
-        Echo echo3 = new Echo(2, 6, echoesApplication.dateFromString("11 Apr 2021"));
+        Echo echo3 = new Echo(2, 6, echoesApplication.dateFromString("11/04/2021"));
         echo3.addImage(echoesApplication.imageEncoder(R.drawable.img_echo3, false));
         echo3.setMood(1);
         echo3.setTitle("First time in my new workplace!");

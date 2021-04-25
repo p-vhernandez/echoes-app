@@ -51,8 +51,6 @@ public class HomeFragment extends Fragment {
         btnCreateEcho = fragmentView.findViewById(R.id.button_create_echo);
 
         allEchoes = echoesApplication.getEchoes();
-        Collections.sort(allEchoes);
-        Collections.reverse(allEchoes);
 
         setClickListeners();
     }

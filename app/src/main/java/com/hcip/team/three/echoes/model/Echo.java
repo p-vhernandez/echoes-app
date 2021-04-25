@@ -117,7 +117,11 @@ public class Echo implements Comparable<Echo>{
 
     @Override
     public int compareTo(Echo echo) {
-        return this.getDate().compareTo(echo.date);
+        if (this != null) {
+            return this.getDate().compareTo(echo.date);
+        } else {
+            return 0;
+        }
     }
 
     public boolean isHasMood() {

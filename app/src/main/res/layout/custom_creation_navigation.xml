@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/top_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/btn_camera"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_camera"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_camera" />
+
+            <TextView
+                android:id="@+id/text_camera"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Camera" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_mood"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_mood"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_mood" />
+
+            <TextView
+                android:id="@+id/text_mood"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_mood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Mood" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_text"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_text"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_text" />
+
+            <TextView
+                android:id="@+id/text_text"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Text" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_audio"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_audio"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_audio" />
+
+            <TextView
+                android:id="@+id/text_audio"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_audio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Audio" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_navigation"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/btn_calendar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_calendar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/text_calendar"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Calendar" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_tags"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_tags"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_tags" />
+
+            <TextView
+                android:id="@+id/text_tags"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Tags" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_location"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_location"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_location_menu" />
+
+            <TextView
+                android:id="@+id/text_location"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Location" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_music"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/drw_gray_circle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_music"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:foregroundGravity="center"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_music" />
+
+            <TextView
+                android:id="@+id/text_music"
+                style="@style/Echoes.Label.Unselected"
+                android:layout_below="@id/icon_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="Music" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

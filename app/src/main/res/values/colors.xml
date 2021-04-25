@@ -9,4 +9,17 @@
 
     <color name="gray_text">#B3111111</color>
     <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#ffffffff</color>
+    <color name="colorPrimaryDark">#ffffffff</color>
+    <color name="colorSecondary">#ff111111</color>
+    <color name="colorSecondaryDark">#ff111111</color>
+    <color name="colorAccent">#00A896</color>
+
+    <color name="gradient_start">#DFFFF6</color>
+    <color name="gradient_end">#E4DAFF</color>
+
+    <color name="light_gray">#F5F5F5</color>
+    <color name="label_gray">#6E7191</color>
+    <color name="label_active">#14142B</color>
 </resources>

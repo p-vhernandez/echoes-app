@@ -84,4 +84,42 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="Echoes.Premium.Call" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+
+    <style name="Echoes.Premium.Price" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/purple_accent</item>
+        <item name="android:textSize">44sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+
+    <style name="Echoes.Premium.Cancel" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.SecondaryButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/purple_accent</item>
+        <item name="android:radius">50dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Echoes.Label.Unselected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Label.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
 </resources>
