@@ -122,4 +122,10 @@
         <item name="fontFamily">@font/inter_regular</item>
     </style>
 
+    <style name="Echoes.Splash.Text" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/splash_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_light</item>
+    </style>
+
 </resources>
