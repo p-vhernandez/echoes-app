@@ -4,14 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drw_premium_background_bottom_circle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/drw_premium_background_top_circle" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/drw_premium_background_full_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/full_circle_in_background"
         android:src="@drawable/drw_premium_full_circle"
-        app:layout_constraintTop_toBottomOf="@id/page_title"
-        android:contentDescription="@string/full_circle_in_background" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_title" />
 
     <TextView
         android:id="@+id/page_title"
@@ -25,15 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_exit"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:contentDescription="@string/exit_cross"
-        android:padding="25dp"
-        android:src="@drawable/ic_exit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/img_exit"-->
+    <!--        android:layout_width="75dp"-->
+    <!--        android:layout_height="75dp"-->
+    <!--        android:contentDescription="@string/exit_cross"-->
+    <!--        android:padding="25dp"-->
+    <!--        android:src="@drawable/ic_exit"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/get_premium_text"
@@ -84,14 +104,14 @@
     <Button
         android:id="@+id/premium_button"
         style="@style/Echoes.SecondaryButtonStyle"
-        android:background="@drawable/drw_secondary_button"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginTop="120dp"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:background="@drawable/drw_secondary_button"
         android:text="@string/join_now"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/premium_explanation" />
