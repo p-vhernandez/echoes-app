@@ -79,5 +79,7 @@ public class MoodsAdapter extends BaseAdapter {
 
         imgMood.setBackground(context.getResources().getDrawable(R.drawable.drw_mood_selected));
         selectedImage = imgMood;
+
+        // TODO: actually select and save mood in the new echo
     }
 }

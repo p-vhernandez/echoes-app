@@ -63,20 +63,40 @@ public class PicturesAdapter extends BaseAdapter {
         picture.setScaleType(ImageView.ScaleType.FIT_XY);
         picture.setAdjustViewBounds(true);
 
-        if (i == 0) {
-            openImageSelector(picture);
-        } else {
-            selectImage(picture);
-        }
+        picture.setOnClickListener(v -> {
+            if (i == 0) {
+                openImageSelector(picture);
+            } else {
+                //TODO: check if image is selected
+                // if so, and there are more selected images -> unselect
+                // if so, and there are no more selected images -> unselect
+                // if not, and there are more selected images -> select
+                // if not, and there are no more selected images -> visualize
+            }
+        });
+
+        picture.setOnLongClickListener(v -> {
+            if (i != 0) {
+                //TODO: if there are no more selected images -> select
+                // if there are more selected images -> nothing
+                selectImage(picture);
+            }
+
+            return false;
+        });
 
         return picture;
     }
 
     private void openImageSelector(ImageView picture) {
+        //TODO: create custom selector OR open default system selector
+    }
 
+    private void visualizeImage() {
+        //TODO: preview of the image
     }
 
     private void selectImage(ImageView picture) {
-
+        //TODO: select image and show bin icon for deletion
     }
 }
