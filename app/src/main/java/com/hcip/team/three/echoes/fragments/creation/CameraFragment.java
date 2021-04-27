@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
+import com.hcip.team.three.echoes.utils.PicturesAdapter;
 
 import java.util.Objects;
 
@@ -19,6 +21,7 @@ public class CameraFragment extends Fragment {
     private EchoesApplication echoesApplication;
 
     private View fragmentView;
+    private GridView gridView;
 
     @Nullable
     @Override
@@ -26,7 +29,19 @@ public class CameraFragment extends Fragment {
         fragmentView = inflater.inflate(R.layout.fragment_creation_pictures, parent, false);
         echoesApplication = (EchoesApplication) Objects.requireNonNull(getActivity()).getApplication();
 
+        initialize();
+
         return fragmentView;
+    }
+
+    private void initialize() {
+        gridView = fragmentView.findViewById(R.id.picture_grid);
+        setUpAdapter();
+    }
+
+    private void setUpAdapter() {
+        PicturesAdapter adapter = new PicturesAdapter(requireContext(), echoesApplication);
+        gridView.setAdapter(adapter);
     }
 
 }

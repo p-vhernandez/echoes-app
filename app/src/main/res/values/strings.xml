@@ -23,4 +23,6 @@
     <string name="join_now">Join now</string>
     <string name="full_circle_in_background">full circle in background</string>
     <string name="create_echo">Create echo</string>
+    <string name="add_photos">Add Photos</string>
+    <string name="add_mood">Add Mood</string>
 </resources>
