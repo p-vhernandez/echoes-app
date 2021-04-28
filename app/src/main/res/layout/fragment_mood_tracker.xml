@@ -72,7 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="TThis summary illustrates the distribution of overall moods saved."
+                        android:text="This summary illustrates the distribution of overall moods saved."
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
@@ -112,7 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="The chart Illustrates how your mood has been fluctuating through the year."
+                        android:text="The chart illustrates how your mood has been fluctuating through the year."
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
@@ -152,7 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="TThe chart Illustrates outstanding moments over a period of time."
+                        android:text="TThe chart illustrates outstanding moments over a period of time."
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
