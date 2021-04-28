@@ -20,10 +20,10 @@ import java.util.Objects;
 
 public class EchoesAdapter extends BaseAdapter {
 
-    private EchoesApplication echoesApplication;
+    private final EchoesApplication echoesApplication;
 
     private final Context context;
-    private ArrayList<Echo> allEchoes;
+    private final ArrayList<Echo> allEchoes;
 
     public EchoesAdapter(Context context, EchoesApplication echoesApplication, ArrayList<Echo> allEchoes) {
         this.context = context;

@@ -15,12 +15,19 @@
     <color name="colorSecondary">#ff111111</color>
     <color name="colorSecondaryDark">#ff111111</color>
     <color name="colorAccent">#00A896</color>
+    <color name="colorAccent_12">#1F00A896</color>
 
     <color name="gradient_start">#DFFFF6</color>
     <color name="gradient_end">#E4DAFF</color>
 
     <color name="light_gray">#F5F5F5</color>
+    <color name="label_mood_gray">#4E4B66</color>
     <color name="bg_gray">#EFF0F6</color>
     <color name="label_gray">#6E7191</color>
+    <color name="label_gray_12">#1F6E7191</color>
+    <color name="label_gray_50">#806E7191</color>
+    <color name="label_gray_80">#CC6E7191</color>
     <color name="label_active">#14142B</color>
+    <color name="splash_text">#34435E</color>
+
 </resources>

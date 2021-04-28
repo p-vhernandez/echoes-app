@@ -13,11 +13,18 @@
         android:layout_height="75dp"
         android:layout_alignParentTop="true" />
 
+    <View
+        android:id="@+id/toolbar_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@id/app_toolbar"
+        android:background="@drawable/drw_toolbar_dropshadow" />
+
     <FrameLayout
         android:id="@+id/fragment_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/app_toolbar"
+        android:layout_below="@id/toolbar_shadow"
         android:layout_above="@id/bottom_navigation"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".activities.MainActivity"

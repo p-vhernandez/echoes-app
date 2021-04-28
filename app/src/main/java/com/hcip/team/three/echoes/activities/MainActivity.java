@@ -131,6 +131,6 @@ public class MainActivity extends AppCompatActivity {
     public void goToEchoCreation() {
         Intent intent = new Intent(this, CreationActivity.class);
         startActivity(intent);
-        finish();
+//        finish();
     }
 }
