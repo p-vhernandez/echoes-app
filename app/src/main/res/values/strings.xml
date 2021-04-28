@@ -25,4 +25,11 @@
     <string name="create_echo">Create echo</string>
     <string name="add_photos">Add Photos</string>
     <string name="add_mood">Add Mood</string>
+    <string name="this_summary_illustrates_the_distribution_of_overall_moods_saved">This summary illustrates the distribution of overall moods saved.</string>
+    <string name="your_moods">Your Moods</string>
+    <string name="mood_distribution">Mood Distribution</string>
+    <string name="the_chart_illustrates_how_your_mood_has_been_fluctuating_through_the_year">The chart illustrates how your mood has been fluctuating through the year.</string>
+    <string name="memory_highlights">Memory Highlights</string>
+    <string name="tthe_chart_illustrates_outstanding_moments_over_a_period_of_time">TThe chart illustrates outstanding moments over a period of time.</string>
+    <string name="add_location">Add Location</string>
 </resources>

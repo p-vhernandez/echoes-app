@@ -20,6 +20,7 @@ import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
 import com.hcip.team.three.echoes.fragments.DefaultNoContentFragment;
 import com.hcip.team.three.echoes.fragments.display.HomeFragment;
+import com.hcip.team.three.echoes.fragments.display.MoodTrackerFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeFragmentManager() {
         homeFragment = new HomeFragment();
         searchFragment = new DefaultNoContentFragment();
-        moodTrackerFragment = new DefaultNoContentFragment();
+        moodTrackerFragment = new MoodTrackerFragment();
         profileFragment = new DefaultNoContentFragment();
         activeFragment = homeFragment;
 

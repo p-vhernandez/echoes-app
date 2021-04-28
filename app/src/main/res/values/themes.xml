@@ -150,4 +150,23 @@
         <item name="fontFamily">@font/inter_medium</item>
     </style>
 
+    <style name="Echoes.Location.Search" parent="Widget.AppCompat.EditText">
+        <item name="android:drawableStart">@drawable/ic_search_location</item>
+        <item name="android:padding">5dp</item>
+        <item name="hintTextAppearance">@style/Echoes.Location.Search.Hint</item>
+        <item name="textInputStyle">@style/Echoes.Location.Search.Input</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Hint" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/splash_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Input" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
 </resources>

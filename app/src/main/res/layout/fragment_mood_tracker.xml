@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,62 +7,61 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="0dp"
         android:paddingBottom="24dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp">
+                android:paddingEnd="12dp">
 
                 <Button
                     android:id="@+id/filter_date"
                     style="@style/Echoes.IconButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:background="@drawable/drw_mood_tracker_background"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    tools:text="April 2021">
-
-                </Button>
+                    android:background="@drawable/drw_mood_tracker_background"
+                    android:text="April 2021" />
 
                 <Button
                     android:id="@+id/filter_year_month"
                     style="@style/Echoes.IconButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/drw_mood_tracker_background"
-                    tools:text="Yearly">
+                    android:text="Yearly" />
 
-                </Button>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/drw_mood_tracker_background"
                 android:orientation="vertical"
                 android:paddingTop="48dp"
-                android:paddingBottom="48dp"
-                android:background="@drawable/drw_mood_tracker_background">
+                android:paddingBottom="48dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="48dp"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingRight="16dp"
+                    android:paddingBottom="48dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_bold"
-                        android:text="Your Moods"
+                        android:text="@string/your_moods"
                         android:textColor="@color/label_active"
                         android:textSize="17sp" />
 
@@ -72,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="This summary illustrates the distribution of overall moods saved."
+                        android:text="@string/this_summary_illustrates_the_distribution_of_overall_moods_saved"
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
@@ -84,27 +81,28 @@
                     android:layout_height="263dp"
                     tools:srcCompat="@drawable/ic_drw_your_moods" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/drw_mood_tracker_background"
                 android:orientation="vertical"
                 android:paddingTop="48dp"
-                android:paddingBottom="48dp"
-                android:background="@drawable/drw_mood_tracker_background">
+                android:paddingBottom="48dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="48dp"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingRight="16dp"
+                    android:paddingBottom="48dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_bold"
-                        android:text="Mood Distribution"
+                        android:text="@string/mood_distribution"
                         android:textColor="@color/label_active"
                         android:textSize="17sp" />
 
@@ -112,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="The chart illustrates how your mood has been fluctuating through the year."
+                        android:text="@string/the_chart_illustrates_how_your_mood_has_been_fluctuating_through_the_year"
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
@@ -123,28 +121,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="149dp"
                     tools:srcCompat="@drawable/ic_drw_mood_distribution" />
+
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/drw_mood_tracker_background"
                 android:orientation="vertical"
                 android:paddingTop="48dp"
-                android:paddingBottom="48dp"
-                android:background="@drawable/drw_mood_tracker_background">
+                android:paddingBottom="48dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="48dp"
                     android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingRight="16dp"
+                    android:paddingBottom="48dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_bold"
-                        android:text="Memory Highlights"
+                        android:text="@string/memory_highlights"
                         android:textColor="@color/label_active"
                         android:textSize="17sp" />
 
@@ -152,7 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_regular"
-                        android:text="TThe chart illustrates outstanding moments over a period of time."
+                        android:text="@string/tthe_chart_illustrates_outstanding_moments_over_a_period_of_time"
                         android:textColor="@color/label_gray"
                         android:textSize="14sp" />
 
@@ -163,8 +163,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="195dp"
                     tools:srcCompat="@drawable/img_highlights" />
+
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

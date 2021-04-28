@@ -109,6 +109,12 @@ public class CreationActivity extends AppCompatActivity {
         activeFragment = fragmentCamera;
         selectedButton = TXT_CAMERA;
 
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentMusic, "8").hide(fragmentMusic).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentLocation, "7").hide(fragmentLocation).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentTags, "6").hide(fragmentTags).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentDate, "5").hide(fragmentDate).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentAudio, "4").hide(fragmentAudio).commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentText, "3").hide(fragmentText).commit();
         fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentMood, "2").hide(fragmentMood).commit();
         fragmentManager.beginTransaction().add(R.id.fragment_content, fragmentCamera, "1").commit();
     }
