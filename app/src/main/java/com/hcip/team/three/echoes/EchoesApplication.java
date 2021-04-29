@@ -27,8 +27,21 @@ public class EchoesApplication extends Application {
     private ArrayList<Echo> echoes;
     private ArrayList<Mood> moods;
 
+    private Friend user;
+
+    public Friend getUser() {
+        return friends.get(9);
+    }
+
     public ArrayList<Friend> getFriends() {
-        return friends;
+        ArrayList<Friend> actualFriends = new ArrayList<>();
+        for (Friend friend : friends) {
+            if (!friend.isUser()) {
+                actualFriends.add(friend);
+            }
+        }
+
+        return actualFriends;
     }
 
     public void setFriends(ArrayList<Friend> friends) {

@@ -32,4 +32,27 @@
     <string name="memory_highlights">Memory Highlights</string>
     <string name="tthe_chart_illustrates_outstanding_moments_over_a_period_of_time">TThe chart illustrates outstanding moments over a period of time.</string>
     <string name="add_location">Add Location</string>
+    <string name="tag_someone">Tag someone</string>
+    <string name="current_location_icon">current location icon</string>
+    <string name="location_location">Location, Location</string>
+
+    <string-array name="locations_first_echo">
+        <item>Palawan, Philippines</item>
+        <item>Shimizu Island, Philippines</item>
+        <item>Cuilon Island, Philippines</item>
+        <item>Puerto Princesa Subterranean River National Park, Philippines</item>
+        <item>Small Lagoon, Philippines</item>
+        <item>Madrid, Spain</item>
+        <item>Sardinia, Italy</item>
+    </string-array>
+
+    <string-array name="locations_second_echo">
+        <item>Madrid, Spain</item>
+        <item>Palawan, Philippines</item>
+        <item>Shimizu Island, Philippines</item>
+        <item>Cuilon Island, Philippines</item>
+        <item>Puerto Princesa Subterranean River National Park, Philippines</item>
+        <item>Small Lagoon, Philippines</item>
+        <item>Sardinia, Italy</item>
+    </string-array>
 </resources>

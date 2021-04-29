@@ -1,4 +1,4 @@
-package com.hcip.team.three.echoes.utils;
+package com.hcip.team.three.echoes.utils.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -53,8 +53,13 @@ public class EchoesAdapter extends BaseAdapter {
 
         try {
             Echo echo = allEchoes.get(position);
-            Friend creator = echoesApplication.getFriends().get(echo.getCreator());
             Mood mood = null;
+            Friend creator;
+            if (echo.getCreator() == 9) {
+                creator = echoesApplication.getUser();
+            } else {
+                creator = echoesApplication.getFriends().get(echo.getCreator());
+            }
 
             if (echo.isHasMood()) {
                 mood = echoesApplication.getMoods().get(echo.getMood());

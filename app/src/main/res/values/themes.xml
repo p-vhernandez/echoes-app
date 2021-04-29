@@ -169,4 +169,24 @@
         <item name="fontFamily">@font/inter_medium</item>
     </style>
 
+    <style name="Echoes.Tags.FriendName" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Tags.Chips" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="backgroundColor">@color/purple_accent_12</item>
+        <item name="android:drawableLeft">@drawable/drw_tag_chip_icon</item>
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Echoes.Location.Current" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
 </resources>
