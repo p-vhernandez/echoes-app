@@ -1,44 +1,57 @@
 package com.hcip.team.three.echoes.utils.adapters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
+import com.hcip.team.three.echoes.utils.LocationFilter;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class LocationAdapter extends BaseAdapter {
+public class LocationAdapter extends BaseAdapter implements Filterable {
 
-    private Context context;
-    private EchoesApplication echoesApplication;
+    private final Context context;
+    private final EchoesApplication echoesApplication;
 
-    private String[] allLocations;
+    private final List<String> allLocations;
+    private List<String> fileteredLocations;
+
+    private LocationFilter locationFilter;
+
+    private boolean firstTask;
 
     public LocationAdapter(Context context, EchoesApplication echoesApplication) {
         this.context = context;
         this.echoesApplication = echoesApplication;
 
         if (this.echoesApplication.getEchoes().size() == 3) {
-            this.allLocations = context.getResources().getStringArray(R.array.locations_first_echo);
+            this.allLocations = Arrays.asList(context.getResources().getStringArray(R.array.locations_first_echo));
+            this.firstTask = true;
         } else {
-            this.allLocations = context.getResources().getStringArray(R.array.locations_second_echo);
+            this.allLocations = Arrays.asList(context.getResources().getStringArray(R.array.locations_second_echo));
+            this.firstTask = false;
         }
+
+        this.fileteredLocations = allLocations;
+        this.locationFilter = new LocationFilter(this, allLocations);
     }
 
     @Override
     public int getCount() {
-        return allLocations.length;
+        return fileteredLocations.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return allLocations[i];
+        return fileteredLocations.get(i);
     }
 
     @Override
@@ -51,7 +64,8 @@ public class LocationAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item;
 
-        if (i == 0) {
+        if ((firstTask && fileteredLocations.get(i).equals("Palawan, Philippines")) ||
+                (!firstTask && fileteredLocations.get(i).equals("Madrid, Spain"))) {
             item = inflater.inflate(R.layout.custom_layout_current_location, parent, false);
         } else {
             item = inflater.inflate(R.layout.custom_layout_other_location, parent, false);
@@ -59,7 +73,7 @@ public class LocationAdapter extends BaseAdapter {
 
         try {
             TextView txtLocation = item.findViewById(R.id.location_text);
-            txtLocation.setText(allLocations[i]);
+            txtLocation.setText(fileteredLocations.get(i));
 
             item.setOnClickListener(v -> {
                 selectLocation();
@@ -73,6 +87,15 @@ public class LocationAdapter extends BaseAdapter {
 
     private void selectLocation() {
 
+    }
+
+    public void setFileteredLocations(List<String> fileteredLocations) {
+        this.fileteredLocations = fileteredLocations;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return locationFilter;
     }
 
 }

@@ -155,6 +155,11 @@
         <item name="android:padding">5dp</item>
         <item name="hintTextAppearance">@style/Echoes.Location.Search.Hint</item>
         <item name="textInputStyle">@style/Echoes.Location.Search.Input</item>
+        <item name="hintTextColor">@color/splash_text</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/search</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Echoes.Location.Search.Hint" parent="TextAppearance.AppCompat">

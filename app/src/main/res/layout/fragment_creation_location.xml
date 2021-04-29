@@ -15,29 +15,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/location_input"
-        style="@style/Echoes.Location.Search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/subsection_title"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/drw_input_background_location"
-        android:drawableStart="@drawable/drw_search_location_icon"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/inter_medium"
-        android:hint="@string/search"
-        android:inputType="text"
-        android:padding="5dp"
-        android:textColor="@color/label_active"
-        android:textColorHint="@color/label_gray"
-        android:textSize="14sp" />
+        <EditText
+            android:id="@+id/location_input"
+            style="@style/Echoes.Location.Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subsection_title"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/drw_input_background_location"
+            android:drawableStart="@drawable/drw_search_location_icon"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_medium"
+            android:hint="@string/search"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textColor="@color/label_active"
+            android:textColorHint="@color/label_gray"
+            android:textSize="14sp" />
 
     <ListView
         android:id="@+id/locations_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/location_input"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>
