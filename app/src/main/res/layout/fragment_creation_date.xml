@@ -15,29 +15,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/selected_date"-->
-<!--        style="@style/Echoes.Date.Selected"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/subsection_title"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:text="5 April, 2021" />-->
-
-    <DatePicker
-        android:id="@+id/date_picker"
-        style="@style/Echoes.Date.Calendar"
+    <TextView
+        android:id="@+id/selected_date"
+        style="@style/Echoes.Date.Selected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/subsection_title"
-        android:layout_marginTop="20dp"
-        android:textColorPrimary="@color/label_active"
-        android:textColorSecondary="@color/label_gray"
-        android:background="@color/white"
-        android:colorAccent="@color/white"
-        android:textColorPrimaryInverse="@color/label_active"
-        android:textColorSecondaryInverse="@color/label_active"
-        android:colorControlActivated="@color/colorAccent"
-        android:datePickerMode="calendar" />
+        android:layout_marginTop="5dp"
+        android:text="@string/example_date" />
+
+    <CalendarView
+        android:id="@+id/calendar"
+        android:theme="@style/Echoes.Date.Calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selected_date"
+        android:weekDayTextAppearance="@style/Echoes.Date.Calendar.Weekday"
+        android:layout_marginTop="40dp"
+        android:visibility="visible"/>
 
 </RelativeLayout>

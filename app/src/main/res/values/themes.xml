@@ -231,6 +231,12 @@
         <item name="fontFamily">@font/inter_regular</item>
     </style>
 
+    <style name="Echoes.Date.Calendar.Weekday" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
     <style name="Echoes.Date.Calendar.Today" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/label_active</item>
         <item name="android:textSize">12sp</item>

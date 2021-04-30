@@ -39,6 +39,7 @@
     <string name="add_description">Add a description</string>
     <string name="add_a_date">Add a Date</string>
     <string name="location_selected">Location selected</string>
+    <string name="example_date">5 April, 2021</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>

@@ -102,4 +102,9 @@ public class EchoesApplication extends Application {
         return simpleDateFormat.format(date);
     }
 
+    public String stringFromDateCreation(Date date) {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+        return simpleDateFormat.format(date);
+    }
+
 }
