@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
-import com.hcip.team.three.echoes.utils.LocationFilter;
+import com.hcip.team.three.echoes.utils.filtering.LocationFilter;
+import com.hcip.team.three.echoes.utils.interfaces.LocationSelectedListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,13 +25,16 @@ public class LocationAdapter extends BaseAdapter implements Filterable {
     private final List<String> allLocations;
     private List<String> fileteredLocations;
 
-    private LocationFilter locationFilter;
+    private final LocationFilter locationFilter;
 
-    private boolean firstTask;
+    private final boolean firstTask;
 
-    public LocationAdapter(Context context, EchoesApplication echoesApplication) {
+    private LocationSelectedListener locationSelectedListener;
+
+    public LocationAdapter(Context context, EchoesApplication echoesApplication, LocationSelectedListener locationSelectedListener) {
         this.context = context;
         this.echoesApplication = echoesApplication;
+        this.locationSelectedListener = locationSelectedListener;
 
         if (this.echoesApplication.getEchoes().size() == 3) {
             this.allLocations = Arrays.asList(context.getResources().getStringArray(R.array.locations_first_echo));
@@ -75,9 +79,7 @@ public class LocationAdapter extends BaseAdapter implements Filterable {
             TextView txtLocation = item.findViewById(R.id.location_text);
             txtLocation.setText(fileteredLocations.get(i));
 
-            item.setOnClickListener(v -> {
-                selectLocation();
-            });
+            item.setOnClickListener(v -> selectLocation(fileteredLocations.get(i)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,8 +87,8 @@ public class LocationAdapter extends BaseAdapter implements Filterable {
         return item;
     }
 
-    private void selectLocation() {
-
+    private void selectLocation(String selectedLocation) {
+        locationSelectedListener.onLocationSelected(selectedLocation);
     }
 
     public void setFileteredLocations(List<String> fileteredLocations) {

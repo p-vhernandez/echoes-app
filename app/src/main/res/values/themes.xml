@@ -194,4 +194,55 @@
         <item name="fontFamily">@font/inter_medium</item>
     </style>
 
+    <style name="Echoes.Text.Title" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="android:hint">@string/add_title</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Echoes.Text.Description" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/add_description</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Echoes.Date.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/label_active</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Day" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Today" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="background">@drawable/drw_date_today_circle</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="background">@drawable/drw_day_selected_circle</item>
+    </style>
+
 </resources>

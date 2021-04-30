@@ -23,8 +23,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.CreationActivity" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activities.CreationActivity"
+            android:windowSoftInputMode="adjustPan" />
+
     </application>
 
 </manifest>

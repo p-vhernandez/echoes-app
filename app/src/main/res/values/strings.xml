@@ -35,6 +35,10 @@
     <string name="tag_someone">Tag someone</string>
     <string name="current_location_icon">current location icon</string>
     <string name="location_location">Location, Location</string>
+    <string name="add_title">Add a title</string>
+    <string name="add_description">Add a description</string>
+    <string name="add_a_date">Add a Date</string>
+    <string name="location_selected">Location selected</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>

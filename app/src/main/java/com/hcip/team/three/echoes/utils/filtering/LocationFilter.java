@@ -1,4 +1,4 @@
-package com.hcip.team.three.echoes.utils;
+package com.hcip.team.three.echoes.utils.filtering;
 
 import android.widget.Filter;
 
