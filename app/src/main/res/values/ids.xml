@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="location_input" type="id" />
+    <item name="recorder_ring_inactive" type="id" />
+    <item name="start_recording_button" type="id" />
 </resources>

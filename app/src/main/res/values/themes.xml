@@ -52,9 +52,15 @@
     </style>
 
     <style name="EchoDate" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Audio.Guidance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
     </style>
 
     <style name="EchoLocation" parent="TextAppearance.AppCompat">
