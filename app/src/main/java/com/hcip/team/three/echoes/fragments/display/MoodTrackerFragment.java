@@ -1,10 +1,9 @@
-package com.hcip.team.three.echoes.fragments.creation;
+package com.hcip.team.three.echoes.fragments.display;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,36 +11,22 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
-import com.hcip.team.three.echoes.utils.adapters.PicturesAdapter;
 
 import java.util.Objects;
 
-public class CameraFragment extends Fragment {
+public class MoodTrackerFragment extends Fragment {
 
     private EchoesApplication echoesApplication;
 
     private View fragmentView;
-    private GridView gridView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
-        fragmentView = inflater.inflate(R.layout.fragment_creation_pictures, parent, false);
+        fragmentView = inflater.inflate(R.layout.fragment_mood_tracker, parent, false);
         echoesApplication = (EchoesApplication) Objects.requireNonNull(getActivity()).getApplication();
 
-        initialize();
-
         return fragmentView;
-    }
-
-    private void initialize() {
-        gridView = fragmentView.findViewById(R.id.picture_grid);
-        setUpAdapter();
-    }
-
-    private void setUpAdapter() {
-        PicturesAdapter adapter = new PicturesAdapter(requireContext(), echoesApplication);
-        gridView.setAdapter(adapter);
     }
 
 }

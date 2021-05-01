@@ -1,4 +1,4 @@
-package com.hcip.team.three.echoes.utils;
+package com.hcip.team.three.echoes.utils.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

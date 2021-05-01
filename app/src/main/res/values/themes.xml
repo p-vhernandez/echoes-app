@@ -52,9 +52,15 @@
     </style>
 
     <style name="EchoDate" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Audio.Guidance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
     </style>
 
     <style name="EchoLocation" parent="TextAppearance.AppCompat">
@@ -148,6 +154,107 @@
         <item name="android:textSize">14sp</item>
         <item name="android:drawableRight">@drawable/ic_chevron_down</item>
         <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Location.Search" parent="Widget.AppCompat.EditText">
+        <item name="android:drawableStart">@drawable/ic_search_location</item>
+        <item name="android:padding">5dp</item>
+        <item name="hintTextAppearance">@style/Echoes.Location.Search.Hint</item>
+        <item name="textInputStyle">@style/Echoes.Location.Search.Input</item>
+        <item name="hintTextColor">@color/splash_text</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/search</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Hint" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/splash_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Input" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Tags.FriendName" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Tags.Chips" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="backgroundColor">@color/purple_accent_12</item>
+        <item name="android:drawableLeft">@drawable/drw_tag_chip_icon</item>
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Echoes.Location.Current" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Text.Title" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="android:hint">@string/add_title</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Echoes.Text.Description" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/add_description</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Echoes.Date.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/label_active</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Day" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Weekday" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Today" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="background">@drawable/drw_date_today_circle</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="background">@drawable/drw_day_selected_circle</item>
     </style>
 
 </resources>
