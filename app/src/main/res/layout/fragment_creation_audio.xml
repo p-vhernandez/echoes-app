@@ -90,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@id/guidance_text" />
 
     <com.google.android.material.chip.Chip
+        android:id="@+id/recording_timer_total"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginEnd="5dp"

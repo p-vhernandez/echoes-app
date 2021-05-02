@@ -1,6 +1,8 @@
 package com.hcip.team.three.echoes.fragments.creation;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.chip.Chip;
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 public class AudioFragment extends Fragment {
@@ -33,6 +37,9 @@ public class AudioFragment extends Fragment {
 //    private TextView recordingTimer;
 
     private Chronometer chronometer;
+    private Long timerValue;
+    private String timerFormat;
+    private Chip recordingTimer;
 
     @Nullable
     @Override
@@ -55,6 +62,8 @@ public class AudioFragment extends Fragment {
         recordingGuidance = fragmentView.findViewById(R.id.guidance_text);
 //        recordingTimer = fragmentView.findViewById(R.id.timer_text);
         chronometer = fragmentView.findViewById(R.id.chronometer);
+        timerFormat = chronometer.getFormat();
+        recordingTimer = fragmentView.findViewById(R.id.recording_timer_total);
 
         setListeners();
     }
@@ -66,6 +75,8 @@ public class AudioFragment extends Fragment {
         chronometer.setOnChronometerTickListener(chronometer -> {
             changeAudioVisuals();
         });
+
+        recordingTimer.setOnCloseIconClickListener(view -> clearChronometerInfo());
     }
 
     private void startRecordingSimulation() {
@@ -110,11 +121,29 @@ public class AudioFragment extends Fragment {
     }
 
     private void startTimer() {
+        chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.start();
     }
 
     private void stopTimer() {
         chronometer.stop();
+        timerValue = SystemClock.elapsedRealtime() - chronometer.getBase();
+        chronometer.setVisibility(View.GONE);
+
+        showChip();
+    }
+
+    private void showChip() {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
+        recordingTimer.setText(simpleDateFormat.format(timerValue));
+        recordingTimer.setVisibility(View.VISIBLE);
+    }
+
+    private void clearChronometerInfo() {
+        timerValue = 0L;
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        recordingTimer.setVisibility(View.GONE);
+        chronometer.setVisibility(View.VISIBLE);
     }
 
 }
