@@ -32,4 +32,12 @@
     <color name="splash_text">#34435E</color>
 
     <color name="red_audio">#EB5757</color>
+    
+    <!-- Chips blue -->
+    <color name="bg_blue">#82E9FF</color>
+    <color name="label_blue">#076377</color>
+    <!-- Chips green -->
+    <color name="bg_green">#42DBCB</color>
+    <color name="label_green">#005C52</color>
+
 </resources>

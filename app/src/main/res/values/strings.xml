@@ -44,6 +44,8 @@
     <string name="tap_to_record">Tap to record</string>
     <string name="tap_to_stop">Tap again to stop</string>
     <string name="_00_00">00:00</string>
+    <string name="make_public">Make public</string>
+    <string name="add_to_my_wall">Add to my wall</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>
