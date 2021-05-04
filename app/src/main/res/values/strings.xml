@@ -46,6 +46,9 @@
     <string name="_00_00">00:00</string>
     <string name="make_public">Make public</string>
     <string name="add_to_my_wall">Add to my wall</string>
+    <string name="list">List</string>
+    <string name="calendar">Calendar</string>
+    <string name="map">Map</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>
