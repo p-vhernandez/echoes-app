@@ -40,4 +40,6 @@
     <color name="bg_green">#42DBCB</color>
     <color name="label_green">#005C52</color>
 
+    <color name="label_tab">#4E4B66</color>
+
 </resources>
