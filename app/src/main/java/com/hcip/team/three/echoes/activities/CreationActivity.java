@@ -3,6 +3,7 @@ package com.hcip.team.three.echoes.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -415,6 +416,26 @@ public class CreationActivity extends AppCompatActivity {
 
                 break;
         }
+    }
+
+    public void hideBottomMenu() {
+        creationNavigation.setVisibility(View.GONE);
+    }
+
+    public void showBottomMenu() {
+        creationNavigation.setVisibility(View.VISIBLE);
+    }
+
+    public void disableNavbarOptions() {
+        btnFinish.setEnabled(false);
+        btnBack.setColorFilter(getResources().getColor(R.color.black));
+        btnBack.setEnabled(false);
+    }
+
+    public void enableNavbarOptions() {
+        btnFinish.setEnabled(true);
+        btnBack.setColorFilter(getResources().getColor(R.color.light_gray));
+        btnBack.setEnabled(true);
     }
 
 }
