@@ -21,12 +21,13 @@ import com.hcip.team.three.echoes.R;
 import com.hcip.team.three.echoes.fragments.DefaultNoContentFragment;
 import com.hcip.team.three.echoes.fragments.display.HomeFragment;
 import com.hcip.team.three.echoes.fragments.display.MoodTrackerFragment;
+import com.hcip.team.three.echoes.fragments.display.TabsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private EchoesApplication echoesApplication;
 
-    private Fragment homeFragment;
+    private Fragment tabsFragment;
     private Fragment searchFragment;
     private Fragment moodTrackerFragment;
     private Fragment profileFragment;
@@ -56,16 +57,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeFragmentManager() {
-        homeFragment = new HomeFragment();
+        tabsFragment = new TabsFragment();
         searchFragment = new DefaultNoContentFragment();
         moodTrackerFragment = new MoodTrackerFragment();
         profileFragment = new DefaultNoContentFragment();
-        activeFragment = homeFragment;
+        activeFragment = tabsFragment;
 
         fragmentManager.beginTransaction().add(R.id.fragment_content, profileFragment, "4").hide(profileFragment).commit();
         fragmentManager.beginTransaction().add(R.id.fragment_content, moodTrackerFragment, "3").hide(moodTrackerFragment).commit();
         fragmentManager.beginTransaction().add(R.id.fragment_content, searchFragment, "2").hide(searchFragment).commit();
-        fragmentManager.beginTransaction().add(R.id.fragment_content, homeFragment, "1").commit();
+        fragmentManager.beginTransaction().add(R.id.fragment_content, tabsFragment, "1").commit();
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -74,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.overview_page:
-                    if (activeFragment != homeFragment) {
-                        fragmentManager.beginTransaction().hide(activeFragment).show(homeFragment).commit();
-                        activeFragment = homeFragment;
+                    if (activeFragment != tabsFragment) {
+                        fragmentManager.beginTransaction().hide(activeFragment).show(tabsFragment).commit();
+                        activeFragment = tabsFragment;
                     }
 
                     showToolbar();
