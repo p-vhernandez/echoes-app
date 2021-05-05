@@ -1,6 +1,5 @@
 package com.hcip.team.three.echoes.fragments.display;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +13,11 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
-import com.hcip.team.three.echoes.activities.CreationActivity;
 import com.hcip.team.three.echoes.activities.MainActivity;
 import com.hcip.team.three.echoes.model.Echo;
-import com.hcip.team.three.echoes.utils.EchoesAdapter;
+import com.hcip.team.three.echoes.utils.adapters.EchoesAdapter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {

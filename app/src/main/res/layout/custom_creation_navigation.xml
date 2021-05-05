@@ -164,7 +164,7 @@
                 android:layout_height="50dp"
                 android:foregroundGravity="center"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_calendar" />
+                android:src="@drawable/ic_calendar_view" />
 
             <TextView
                 android:id="@+id/text_calendar"

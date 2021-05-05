@@ -12,8 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
-import com.hcip.team.three.echoes.utils.MoodsAdapter;
-import com.hcip.team.three.echoes.utils.PicturesAdapter;
+import com.hcip.team.three.echoes.utils.adapters.MoodsAdapter;
 
 import java.util.Objects;
 
