@@ -54,12 +54,14 @@ public class SplashActivity extends AppCompatActivity {
         echo1.addImage(echoesApplication.imageEncoder(R.drawable.img_echo1, false));
         echo1.setMood(2);
         echo1.setTitle("Fun times with my friends");
+        echo1.setLocation("Greece");
         echoes.add(echo1);
 
         Echo echo2 = new Echo(1, 9, echoesApplication.dateFromString("07/03/2021"));
         echo2.addImage(echoesApplication.imageEncoder(R.drawable.img_echo2, false));
         echo2.setMood(4);
         echo2.setTitle("Tbt times with no covid :(");
+        echo2.setLocation("Urban 58, Madrid, Spain");
         echoes.add(echo2);
 
         // Not created by Joanna
@@ -67,6 +69,7 @@ public class SplashActivity extends AppCompatActivity {
         echo3.addImage(echoesApplication.imageEncoder(R.drawable.img_echo3, false));
         echo3.setMood(1);
         echo3.setTitle("First time in my new workplace!");
+        echo3.setLocation("Madrid, Spain");
         echoes.add(echo3);
 
         echoesApplication.setEchoes(echoes);

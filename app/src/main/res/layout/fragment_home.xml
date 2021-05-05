@@ -17,9 +17,9 @@
         android:layout_height="55dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/drw_main_button"
+        android:elevation="3dp"
         android:text="@string/create_echo"
         android:textColor="@color/white"
-        android:elevation="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
