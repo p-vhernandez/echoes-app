@@ -25,6 +25,7 @@ import com.hcip.team.three.echoes.fragments.creation.MoodFragment;
 import com.hcip.team.three.echoes.fragments.creation.MusicFragment;
 import com.hcip.team.three.echoes.fragments.creation.TagsFragment;
 import com.hcip.team.three.echoes.fragments.creation.TextFragment;
+import com.hcip.team.three.echoes.model.Echo;
 
 public class CreationActivity extends AppCompatActivity {
 
@@ -152,19 +153,23 @@ public class CreationActivity extends AppCompatActivity {
         txtLocation = creationNavigation.findViewById(R.id.text_location);
         txtMusic = creationNavigation.findViewById(R.id.text_music);
 
+        echoesApplication.startEchoCreation();
+
         selectButton(TXT_CAMERA);
         setClickListeners();
     }
 
     private void setClickListeners() {
         btnBack.setOnClickListener(view -> {
+            echoesApplication.finishEchoCreation();
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         });
 
         btnFinish.setOnClickListener(view -> {
-            // TODO
+            doubleCheckEchoInformationAndSave();
         });
 
         setUpFragmentTransitions();
@@ -436,6 +441,30 @@ public class CreationActivity extends AppCompatActivity {
         btnFinish.setEnabled(true);
         btnBack.setColorFilter(getResources().getColor(R.color.light_gray));
         btnBack.setEnabled(true);
+    }
+
+    private void doubleCheckEchoInformationAndSave() {
+        Echo newEcho = echoesApplication.getNewEcho();
+        if (echoHasSomeInfo(newEcho)) {
+            showEchoOverview();
+        } else {
+            //TODO: show message saying that there is data missing
+        }
+    }
+
+    private boolean echoHasSomeInfo(Echo newEcho) {
+        return (newEcho.getB64Pictures() != null
+                || newEcho.isHasMood() || newEcho.isHasAudio()
+                || (newEcho.getTitle() != null && !newEcho.getTitle().equals(""))
+                || (newEcho.getDescription() != null && !newEcho.getDescription().equals(""))
+                || newEcho.getTags() != null
+                || (newEcho.getLocation() != null && !newEcho.getLocation().equals("")));
+    }
+
+    private void showEchoOverview() {
+        Intent intent = new Intent(this, EchoOverview.class);
+        startActivity(intent);
+        // not finishing activity in case user goes back to editing
     }
 
 }

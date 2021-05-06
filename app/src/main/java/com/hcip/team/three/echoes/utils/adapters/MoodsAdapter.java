@@ -22,6 +22,7 @@ public class MoodsAdapter extends BaseAdapter {
 
     private final ArrayList<Mood> allMoods;
     private ImageView selectedImage;
+    private int selectedMood = -1;
 
     public MoodsAdapter(Context context, EchoesApplication echoesApplication) {
         this.context = context;
@@ -60,10 +61,7 @@ public class MoodsAdapter extends BaseAdapter {
 
             TextView txtMood = item.findViewById(R.id.mood_name);
             txtMood.setText(allMoods.get(i).getMoodName());
-
-            imgMood.setOnClickListener(v -> {
-                selectMood(imgMood, i);
-            });
+            imgMood.setOnClickListener(v -> selectMood(imgMood, i));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,9 +75,18 @@ public class MoodsAdapter extends BaseAdapter {
             selectedImage.setBackground(context.getResources().getDrawable(R.drawable.drw_mood_unselected));
         }
 
-        imgMood.setBackground(context.getResources().getDrawable(R.drawable.drw_mood_selected));
-        selectedImage = imgMood;
+        if (i == selectedMood) {
+            imgMood.setBackground(context.getResources().getDrawable(R.drawable.drw_mood_unselected));
+            selectedImage = null;
+            selectedMood = -1;
+            echoesApplication.getNewEcho().setHasMood(false);
+        } else {
+            imgMood.setBackground(context.getResources().getDrawable(R.drawable.drw_mood_selected));
+            selectedImage = imgMood;
+            selectedMood = i;
+            echoesApplication.getNewEcho().setHasMood(true);
+        }
 
-        // TODO: actually select and save mood in the new echo
+        echoesApplication.saveEchoMood(selectedMood);
     }
 }
