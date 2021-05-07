@@ -54,6 +54,8 @@
     <string name="select_photos">Select Photos</string>
     <string name="calendar_icon">calendar icon</string>
     <string name="map_icon">map icon</string>
+    <string name="april_2021">April 2021</string>
+    <string name="yearly">Yearly</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>
