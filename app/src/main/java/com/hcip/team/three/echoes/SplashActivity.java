@@ -40,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
                 generateEchoes();
                 generateFriends();
                 generateMoods();
+                echoesApplication.setUser();
 
                 goToEchoesScreen();
             } catch (Exception e) {

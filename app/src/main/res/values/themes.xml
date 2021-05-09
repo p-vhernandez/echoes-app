@@ -83,6 +83,22 @@
         <item name="fontFamily">@font/inter_bold</item>
     </style>
 
+    <style name="Echoes.AcceptButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/blue_accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:shadowColor">@color/transparent</item>
+    </style>
+
+    <style name="Echoes.CancelButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:shadowColor">@color/transparent</item>
+    </style>
+
     <style name="EchoesAppName" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>

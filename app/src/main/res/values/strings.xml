@@ -56,6 +56,11 @@
     <string name="map_icon">map icon</string>
     <string name="april_2021">April 2021</string>
     <string name="yearly">Yearly</string>
+    <string name="alert_title">Oops, something\'s missing!</string>
+    <string name="ok">Ok</string>
+    <string name="lets_try">Let\'s try!</string>
+    <string name="maybe_later">Maybe later</string>
+    <string name="alert_desc">Sadly, you cannot create an echo with no information. Try adding some text or pictures to start with!</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>

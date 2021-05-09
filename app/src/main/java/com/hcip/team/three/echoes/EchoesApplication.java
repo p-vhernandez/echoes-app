@@ -29,6 +29,66 @@ public class EchoesApplication extends Application {
 
     private Friend user;
 
+    private Echo newEcho;
+
+    public void startEchoCreation() {
+        newEcho = new Echo(echoes.size(), user.getId(), new Date());
+    }
+
+    public void finishEchoCreation() {
+        newEcho = null;
+    }
+
+    public void saveEchoPictures(ArrayList<String> echoPictures) {
+        newEcho.deletePictures();
+        newEcho.setB64Pictures(echoPictures);
+    }
+
+    public void saveEchoMood(int idMood) {
+        newEcho.setMood(idMood);
+    }
+
+    public void saveEchoTitle(String title) {
+        newEcho.setTitle(title);
+    }
+
+    public void saveEchoDesc(String desc) {
+        newEcho.setDescription(desc);
+    }
+
+    public void saveEchoAudio(boolean hasAudio, long audioLength) {
+        newEcho.setHasAudio(hasAudio);
+        newEcho.setAudioLength(audioLength);
+    }
+
+    public void saveEchoDate(Date date) {
+        newEcho.setDate(date);
+    }
+
+    public void saveEchoTag(Friend friend) {
+        if (newEcho.getTags() == null) {
+            newEcho.setTags(new ArrayList<>());
+        }
+
+        newEcho.addTag(friend);
+    }
+
+    public void removeEchoTag(Friend friend) {
+        newEcho.removeTag(friend);
+    }
+
+    public void saveEchoLocation(String location) {
+        newEcho.setLocation(location);
+    }
+
+    public Echo getNewEcho() {
+        return newEcho;
+    }
+
+    public void setUser() {
+        user = friends.get(9);
+    }
+
     public Friend getUser() {
         return friends.get(9);
     }
@@ -69,6 +129,21 @@ public class EchoesApplication extends Application {
     public String imageEncoder(int drawable, boolean isPNG) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), drawable);
+
+        if (isPNG) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        } else {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        }
+
+        byte[] imageBytes = byteArrayOutputStream.toByteArray();
+
+        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+    }
+
+    public String imageEncoder(Drawable drawable, boolean isPNG) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.toByteArray().length);
 
         if (isPNG) {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);

@@ -83,7 +83,7 @@ public class LocationFragment extends Fragment implements LocationSelectedListen
     }
 
     private void showLocationSearch() {
-        //TODO: unsave location
+        echoesApplication.saveEchoLocation(null);
         inputLocation.setText("");
         closeKeyBoard();
         locationSearchLayout.setVisibility(View.VISIBLE);
@@ -91,7 +91,7 @@ public class LocationFragment extends Fragment implements LocationSelectedListen
     }
 
     private void showSelectedLocation(String location) {
-        //TODO: save location
+        echoesApplication.saveEchoLocation(location);
         selectedLocation.setText(location);
         locationSearchLayout.setVisibility(View.GONE);
         locationSelectedLayout.setVisibility(View.VISIBLE);

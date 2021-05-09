@@ -130,6 +130,7 @@ public class AudioFragment extends Fragment {
         timerValue = SystemClock.elapsedRealtime() - chronometer.getBase();
         chronometer.setVisibility(View.GONE);
 
+        echoesApplication.saveEchoAudio(true, timerValue);
         showChip();
     }
 
@@ -144,6 +145,8 @@ public class AudioFragment extends Fragment {
         chronometer.setBase(SystemClock.elapsedRealtime());
         recordingTimer.setVisibility(View.GONE);
         chronometer.setVisibility(View.VISIBLE);
+
+        echoesApplication.saveEchoAudio(false, 0L);
     }
 
 }

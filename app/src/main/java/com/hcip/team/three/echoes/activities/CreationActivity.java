@@ -1,8 +1,10 @@
 package com.hcip.team.three.echoes.activities;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -25,6 +28,7 @@ import com.hcip.team.three.echoes.fragments.creation.MoodFragment;
 import com.hcip.team.three.echoes.fragments.creation.MusicFragment;
 import com.hcip.team.three.echoes.fragments.creation.TagsFragment;
 import com.hcip.team.three.echoes.fragments.creation.TextFragment;
+import com.hcip.team.three.echoes.model.Echo;
 
 public class CreationActivity extends AppCompatActivity {
 
@@ -152,19 +156,20 @@ public class CreationActivity extends AppCompatActivity {
         txtLocation = creationNavigation.findViewById(R.id.text_location);
         txtMusic = creationNavigation.findViewById(R.id.text_music);
 
+        echoesApplication.startEchoCreation();
+
         selectButton(TXT_CAMERA);
         setClickListeners();
     }
 
     private void setClickListeners() {
         btnBack.setOnClickListener(view -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            echoesApplication.finishEchoCreation();
+            goBackToMainActivity();
         });
 
         btnFinish.setOnClickListener(view -> {
-            // TODO
+            doubleCheckEchoInformationAndSave();
         });
 
         setUpFragmentTransitions();
@@ -436,6 +441,51 @@ public class CreationActivity extends AppCompatActivity {
         btnFinish.setEnabled(true);
         btnBack.setColorFilter(getResources().getColor(R.color.light_gray));
         btnBack.setEnabled(true);
+    }
+
+    private void doubleCheckEchoInformationAndSave() {
+        Echo newEcho = echoesApplication.getNewEcho();
+        if (echoHasSomeInfo(newEcho)) {
+            showEchoOverview();
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.custom_layout_finish_alert, null);
+            builder.setView(dialogView);
+
+            AlertDialog alertDialog = builder.create();
+            Button positiveButton = dialogView.findViewById(R.id.button_ok);
+            Button negativeButton = dialogView.findViewById(R.id.button_cancel);
+
+            positiveButton.setOnClickListener(v -> alertDialog.dismiss());
+            negativeButton.setOnClickListener(v -> {
+                alertDialog.dismiss();
+                goBackToMainActivity();
+            });
+
+            alertDialog.show();
+        }
+    }
+
+    private boolean echoHasSomeInfo(Echo newEcho) {
+        return (newEcho.getB64Pictures() != null
+                || newEcho.isHasMood() || newEcho.isHasAudio()
+                || (newEcho.getTitle() != null && !newEcho.getTitle().equals(""))
+                || (newEcho.getDescription() != null && !newEcho.getDescription().equals(""))
+                || newEcho.getTags() != null
+                || (newEcho.getLocation() != null && !newEcho.getLocation().equals("")));
+    }
+
+    private void goBackToMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void showEchoOverview() {
+        Intent intent = new Intent(this, EchoOverview.class);
+        startActivity(intent);
+        // not finishing activity in case user goes back to editing
     }
 
 }
