@@ -3,7 +3,7 @@ package com.hcip.team.three.echoes.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Echo implements Comparable<Echo>{
+public class Echo implements Comparable<Echo> {
 
     private int id;
     private int creator;
@@ -20,6 +20,7 @@ public class Echo implements Comparable<Echo>{
 
     private boolean hasMood;
     private boolean hasAudio;
+    private boolean isPrivate;
 
     private long audioLength;
 
@@ -30,6 +31,15 @@ public class Echo implements Comparable<Echo>{
 
         this.hasMood = false;
         this.hasAudio = false;
+        this.isPrivate = true;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void changePrivacy() {
+        isPrivate = !isPrivate;
     }
 
     public int getId() {
@@ -88,7 +98,11 @@ public class Echo implements Comparable<Echo>{
         this.b64Pictures = b64Pictures;
     }
 
-    public void deletePictures() { this.b64Pictures.clear(); }
+    public void deletePictures() {
+        if (b64Pictures != null) {
+            this.b64Pictures.clear();
+        }
+    }
 
     public Date getDate() {
         return date;

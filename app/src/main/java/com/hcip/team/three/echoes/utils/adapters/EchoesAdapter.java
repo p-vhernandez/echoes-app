@@ -104,11 +104,11 @@ public class EchoesAdapter extends BaseAdapter {
             if (mood != null) {
                 echoMood.setImageDrawable(echoesApplication.imageDecoder(Objects.requireNonNull(mood).getMoodImage()));
             } else {
-                echoMood.setVisibility(View.GONE);
+                echoMood.setVisibility(View.INVISIBLE);
             }
 
             if (echo.getLocation().equals("") || echo.getLocation() == null) {
-                echoLocation.setVisibility(View.GONE);
+                echoLocation.setVisibility(View.INVISIBLE);
             } else {
                 echoLocation.setText(echo.getLocation());
             }

@@ -1,0 +1,6 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--set image to be shown on cicular image view-->
+    <item android:drawable="@drawable/drw_ic_echo_audio_background" />
+    <item android:drawable="@drawable/ic_audio" />
+</layer-list>

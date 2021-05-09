@@ -127,8 +127,8 @@ public class CameraFragment extends Fragment implements PictureSelectedListener 
 
     public ArrayList<String> getEncodedPictures() {
         ArrayList<String> selected = new ArrayList<>();
-        for (Drawable drawable : availablePicturesAdapter.getSelectedImages()) {
-            selected.add(echoesApplication.imageEncoder(drawable, false));
+        for (Integer integer : availablePicturesAdapter.getSelectedDrawables()) {
+            selected.add(echoesApplication.imageEncoder(integer, false));
         }
 
         return selected;
