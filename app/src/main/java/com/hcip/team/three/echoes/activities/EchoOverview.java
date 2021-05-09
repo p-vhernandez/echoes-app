@@ -25,6 +25,9 @@ public class EchoOverview extends AppCompatActivity {
     private ImageView btnBack;
     private ImageView creatorImage;
     private ImageView echoSingleImage;
+    private ImageView echoFirstImage;
+    private ImageView echoSecondImage;
+    private ImageView echoThirdImage;
     private ImageView moodImage;
     private ImageView audioImage;
 
@@ -38,11 +41,20 @@ public class EchoOverview extends AppCompatActivity {
 
     private CheckBox checkBoxPrivacy;
 
+    private Echo toOverview;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_echo_overview_single_image);
+
         echoesApplication = (EchoesApplication) getApplication();
+        toOverview = echoesApplication.getNewEcho();
+
+        if (toOverview.getB64Pictures().size() == 1) {
+            setContentView(R.layout.activity_echo_overview_single_image);
+        } else {
+            setContentView(R.layout.activity_echo_overview_three_images);
+        }
 
         initialize();
     }
@@ -50,9 +62,16 @@ public class EchoOverview extends AppCompatActivity {
     private void initialize() {
         btnBack = findViewById(R.id.button_back);
         creatorImage = findViewById(R.id.creator_image);
-        echoSingleImage = findViewById(R.id.echo_single_image);
         moodImage = findViewById(R.id.mood_image);
         audioImage = findViewById(R.id.audio_image);
+
+        if (toOverview.getB64Pictures().size() == 1) {
+            echoSingleImage = findViewById(R.id.echo_single_image);
+        } else {
+            echoFirstImage = findViewById(R.id.single_image_1);
+            echoSecondImage = findViewById(R.id.single_image_2);
+            echoThirdImage = findViewById(R.id.single_image_3);
+        }
 
         echoTitle = findViewById(R.id.echo_title);
         echoDate = findViewById(R.id.echo_date);
@@ -67,26 +86,32 @@ public class EchoOverview extends AppCompatActivity {
     }
 
     private void setUpInformation() {
-        Echo echo = echoesApplication.getNewEcho();
         creatorImage.setImageDrawable(echoesApplication.imageDecoder(echoesApplication.getUser().getB64ProfilePicture()));
-        echoSingleImage.setImageDrawable(echoesApplication.imageDecoder(echo.getB64Pictures().get(0)));
 
-        if (echo.isHasMood()) {
-            moodImage.setImageDrawable(echoesApplication.imageDecoder(echoesApplication.getMoods().get(echo.getMood()).getMoodImage()));
+        if (toOverview.getB64Pictures().size() == 1) {
+            echoSingleImage.setImageDrawable(echoesApplication.imageDecoder(toOverview.getB64Pictures().get(0)));
+        } else {
+            echoFirstImage.setImageDrawable(echoesApplication.imageDecoder(toOverview.getB64Pictures().get(0)));
+            echoSecondImage.setImageDrawable(echoesApplication.imageDecoder(toOverview.getB64Pictures().get(1)));
+            echoThirdImage.setImageDrawable(echoesApplication.imageDecoder(toOverview.getB64Pictures().get(2)));
+        }
+
+        if (toOverview.isHasMood()) {
+            moodImage.setImageDrawable(echoesApplication.imageDecoder(echoesApplication.getMoods().get(toOverview.getMood()).getMoodImage()));
         } else {
             moodImage.setVisibility(View.INVISIBLE);
         }
 
-        if (!echo.isHasAudio()) {
+        if (!toOverview.isHasAudio()) {
             audioImage.setVisibility(View.INVISIBLE);
         }
 
-        echoTitle.setText(echo.getTitle());
-        echoDate.setText(echoesApplication.stringFromDate(echo.getDate()));
-        echoLocation.setText(echo.getLocation());
+        echoTitle.setText(toOverview.getTitle());
+        echoDate.setText(echoesApplication.stringFromDate(toOverview.getDate()));
+        echoLocation.setText(toOverview.getLocation());
 
-        if (echo.getTags() != null && echo.getTags().size() > 0) {
-            for (Friend friend : echo.getTags()) {
+        if (toOverview.getTags() != null && toOverview.getTags().size() > 0) {
+            for (Friend friend : toOverview.getTags()) {
                 Chip friendChip = (Chip) getLayoutInflater().inflate(R.layout.custom_layout_chip_simple, tagsGroup, false);
                 friendChip.setText(friend.getName());
                 tagsGroup.addView(friendChip);

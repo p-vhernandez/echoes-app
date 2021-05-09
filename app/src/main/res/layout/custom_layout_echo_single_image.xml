@@ -101,6 +101,20 @@
         app:layout_constraintStart_toStartOf="@id/echo_single_image_card"
         app:layout_constraintTop_toBottomOf="@id/mood_constraint" />
 
+    <ImageView
+        android:id="@+id/audio_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/drw_ic_echo_audio_background"
+        android:contentDescription="@string/audio_indicator"
+        android:elevation="2dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_audio"
+        app:layout_constraintStart_toEndOf="@id/mood_image"
+        app:layout_constraintTop_toBottomOf="@id/mood_constraint"
+        app:tint="@color/white" />
+
     <LinearLayout
         android:id="@+id/location_layout"
         android:layout_width="match_parent"
