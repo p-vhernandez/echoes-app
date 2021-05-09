@@ -63,6 +63,7 @@
     <string name="alert_desc">Sadly, you cannot create an echo with no information. Try adding some text or pictures to start with!</string>
     <string name="tagged_friends">Tagged friends</string>
     <string name="audio_indicator">audio indicator</string>
+    <string name="_2021">2021</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>
@@ -82,5 +83,11 @@
         <item>Puerto Princesa Subterranean River National Park, Philippines</item>
         <item>Small Lagoon, Philippines</item>
         <item>Sardinia, Italy</item>
+    </string-array>
+
+    <string-array name="year_month_spinner">
+        <item>Yearly</item>
+        <item>Monthly</item>
+        <item>Daily</item>
     </string-array>
 </resources>
