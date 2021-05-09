@@ -75,6 +75,7 @@ public class CameraFragment extends Fragment implements PictureSelectedListener 
             ArrayList<Drawable> selectedImages = availablePicturesAdapter.getSelectedImages();
             selectedPicturesAdapter.clearDrawables();
             selectedPicturesAdapter.addDrawableImages(selectedImages);
+            echoesApplication.saveEchoPictures(getEncodedPictures());
 
             closeImageSelection();
             showBottomMenu();
@@ -122,5 +123,14 @@ public class CameraFragment extends Fragment implements PictureSelectedListener 
     @Override
     public void onSelectedPictureClicked() {
 
+    }
+
+    public ArrayList<String> getEncodedPictures() {
+        ArrayList<String> selected = new ArrayList<>();
+        for (Integer integer : availablePicturesAdapter.getSelectedDrawables()) {
+            selected.add(echoesApplication.imageEncoder(integer, false));
+        }
+
+        return selected;
     }
 }

@@ -26,18 +26,24 @@
                     android:id="@+id/filter_date"
                     style="@style/Echoes.IconButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:minWidth="150dp"
+                    android:gravity="center_vertical"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="5dp"
                     android:background="@drawable/drw_mood_tracker_background"
-                    android:text="April 2021" />
+                    android:text="@string/_2021" />
 
-                <Button
-                    android:id="@+id/filter_year_month"
-                    style="@style/Echoes.IconButtonStyle"
+                <Spinner
+                    android:id="@+id/year_month_spinner"
+                    style="@style/Echoes.SpinnerStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/drw_mood_tracker_background"
-                    android:text="Yearly" />
+                    android:minWidth="120dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/drw_background_spinner"
+                    android:overlapAnchor="false"
+                    android:spinnerMode="dropdown"
+                    tools:listitem="@layout/custom_layout_spinner" />
 
             </LinearLayout>
 
@@ -79,7 +85,9 @@
                     android:id="@+id/mood_stats"
                     android:layout_width="match_parent"
                     android:layout_height="263dp"
-                    tools:srcCompat="@drawable/ic_drw_your_moods" />
+                    android:contentDescription="@string/mood_distribution"
+                    android:src="@drawable/drw_your_moods" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +128,8 @@
                     android:id="@+id/mood_graph"
                     android:layout_width="match_parent"
                     android:layout_height="149dp"
-                    tools:srcCompat="@drawable/ic_drw_mood_distribution" />
+                    android:contentDescription="@string/mood_image"
+                    android:src="@drawable/ic_drw_mood_distribution" />
 
             </LinearLayout>
 
@@ -162,7 +171,8 @@
                     android:id="@+id/mood_highlights"
                     android:layout_width="match_parent"
                     android:layout_height="195dp"
-                    tools:srcCompat="@drawable/img_highlights" />
+                    android:contentDescription="@string/mood_tracker"
+                    android:src="@drawable/img_highlights" />
 
             </LinearLayout>
 

@@ -3,7 +3,7 @@ package com.hcip.team.three.echoes.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Echo implements Comparable<Echo>{
+public class Echo implements Comparable<Echo> {
 
     private int id;
     private int creator;
@@ -19,8 +19,10 @@ public class Echo implements Comparable<Echo>{
     private Date date;
 
     private boolean hasMood;
+    private boolean hasAudio;
+    private boolean isPrivate;
 
-    // TODO: add audio to the Echo
+    private long audioLength;
 
     public Echo(int id, int creator, Date date) {
         this.id = id;
@@ -28,6 +30,16 @@ public class Echo implements Comparable<Echo>{
         this.date = date;
 
         this.hasMood = false;
+        this.hasAudio = false;
+        this.isPrivate = true;
+    }
+
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    public void changePrivacy() {
+        isPrivate = !isPrivate;
     }
 
     public int getId() {
@@ -70,12 +82,26 @@ public class Echo implements Comparable<Echo>{
         this.tags = tags;
     }
 
+    public void addTag(Friend tag) {
+        this.tags.add(tag);
+    }
+
+    public void removeTag(Friend tag) {
+        this.tags.remove(tag);
+    }
+
     public ArrayList<String> getB64Pictures() {
         return b64Pictures;
     }
 
     public void setB64Pictures(ArrayList<String> b64Pictures) {
         this.b64Pictures = b64Pictures;
+    }
+
+    public void deletePictures() {
+        if (b64Pictures != null) {
+            this.b64Pictures.clear();
+        }
     }
 
     public Date getDate() {
@@ -92,10 +118,6 @@ public class Echo implements Comparable<Echo>{
         }
 
         this.b64Pictures.add(b64Image);
-    }
-
-    public void deleteImages() {
-        this.b64Pictures.clear();
     }
 
     public int getCreator() {
@@ -115,15 +137,6 @@ public class Echo implements Comparable<Echo>{
         this.hasMood = true;
     }
 
-    @Override
-    public int compareTo(Echo echo) {
-        if (this != null) {
-            return this.getDate().compareTo(echo.date);
-        } else {
-            return 0;
-        }
-    }
-
     public boolean isHasMood() {
         return hasMood;
     }
@@ -131,4 +144,26 @@ public class Echo implements Comparable<Echo>{
     public void setHasMood(boolean hasMood) {
         this.hasMood = hasMood;
     }
+
+    public boolean isHasAudio() {
+        return hasAudio;
+    }
+
+    public void setHasAudio(boolean hasAudio) {
+        this.hasAudio = hasAudio;
+    }
+
+    public long getAudioLength() {
+        return audioLength;
+    }
+
+    public void setAudioLength(long audioLength) {
+        this.audioLength = audioLength;
+    }
+
+    @Override
+    public int compareTo(Echo echo) {
+        return this.getDate().compareTo(echo.date);
+    }
+
 }

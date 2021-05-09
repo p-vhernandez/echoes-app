@@ -94,7 +94,7 @@ public class EchoesAdapter extends BaseAdapter {
             TextView echoDate = row.findViewById(R.id.echo_date);
             ImageView creatorImage = row.findViewById(R.id.creator_image);
             TextView echoLocation = row.findViewById(R.id.echo_location);
-
+            ImageView echoAudio = row.findViewById(R.id.audio_image);
             ImageView echoMood = row.findViewById(R.id.mood_image);
 
             echoTitle.setText(echo.getTitle());
@@ -104,11 +104,15 @@ public class EchoesAdapter extends BaseAdapter {
             if (mood != null) {
                 echoMood.setImageDrawable(echoesApplication.imageDecoder(Objects.requireNonNull(mood).getMoodImage()));
             } else {
-                echoMood.setVisibility(View.GONE);
+                echoMood.setVisibility(View.INVISIBLE);
+            }
+
+            if (!echo.isHasAudio()) {
+                echoAudio.setVisibility(View.INVISIBLE);
             }
 
             if (echo.getLocation().equals("") || echo.getLocation() == null) {
-                echoLocation.setVisibility(View.GONE);
+                echoLocation.setVisibility(View.INVISIBLE);
             } else {
                 echoLocation.setText(echo.getLocation());
             }

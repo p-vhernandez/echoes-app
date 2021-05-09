@@ -56,6 +56,7 @@ public class TagsFragment extends Fragment implements FriendSelectedListener {
     private void createChip(Friend friend) {
         Chip friendChip = (Chip) getLayoutInflater().inflate(R.layout.custom_layout_chip, chipGroup, false);
         friendChip.setText(friend.getName());
+        echoesApplication.saveEchoTag(friend);
 
         friendChip.setOnCloseIconClickListener(view -> {
             removeTag(friendChip, friend);
@@ -67,6 +68,7 @@ public class TagsFragment extends Fragment implements FriendSelectedListener {
     private void removeTag(Chip friendChip, Friend friend) {
         chipGroup.removeView(friendChip);
         putFriendBackInTheList(friend);
+        echoesApplication.removeEchoTag(friend);
     }
 
     private void putFriendBackInTheList(Friend friend) {

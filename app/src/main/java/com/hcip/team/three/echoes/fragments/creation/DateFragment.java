@@ -59,7 +59,7 @@ public class DateFragment extends Fragment {
                 Date selectedDate = simpleDateFormat.parse(selectedDateString);
 
                 this.selectedDate.setText(echoesApplication.stringFromDateCreation(selectedDate));
-                //TODO: save date
+                echoesApplication.saveEchoDate(selectedDate);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
