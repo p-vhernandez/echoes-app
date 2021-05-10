@@ -279,4 +279,11 @@
         <item name="background">@drawable/drw_day_selected_circle</item>
     </style>
 
+    <style name="PickerDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
 </resources>
