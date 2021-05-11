@@ -75,8 +75,8 @@ public class MoodTrackerFragment extends Fragment {
         current = Calendar.getInstance();
         current.setTime(new Date());
         yearlyFormat = new SimpleDateFormat("yyyy");
-        monthlyFormat = new SimpleDateFormat("MM, yyyy");
-        dailyFormat = new SimpleDateFormat("dd MMM, yyyy");
+        monthlyFormat = new SimpleDateFormat("MMM, yyyy");
+        dailyFormat = new SimpleDateFormat("dd MMMM, yyyy");
 
         moodStats = fragmentView.findViewById(R.id.mood_stats);
         moodGraph = fragmentView.findViewById(R.id.mood_graph);
@@ -105,11 +105,11 @@ public class MoodTrackerFragment extends Fragment {
                         break;
                     case 1:
                         changeButtonsText(TXT_MONTHLY);
-                        changeImages(TXT_YEARLY);
+                        changeImages(TXT_MONTHLY);
                         break;
                     case 2:
                         changeButtonsText(TXT_DAILY);
-                        changeImages(TXT_YEARLY);
+                        changeImages(TXT_DAILY);
                         break;
                 }
             }
@@ -150,18 +150,47 @@ public class MoodTrackerFragment extends Fragment {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void changeImages(String type) {
         switch (type) {
             case TXT_YEARLY:
-                //TODO
+                moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods));
+                moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution));
+                moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights));
                 break;
             case TXT_MONTHLY:
-                //TODO
+                if (current.get(Calendar.MONTH) == Calendar.FEBRUARY) {
+                    moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods_feb));
+                    moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution_month_feb));
+                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month_feb));
+
+                    setHighlightListener(true);
+                } else {
+                    moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods_month));
+                    moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution_month));
+                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month));
+
+                    setHighlightListener(false);
+                }
                 break;
             case TXT_DAILY:
-                //TODO
+                // not prepared
                 break;
         }
+    }
+
+    private void setHighlightListener(boolean clickable) {
+        if (clickable) {
+            moodHighlights.setOnClickListener(view -> {
+                goToSaddestEcho();
+            });
+        } else {
+            moodHighlights.setOnClickListener(null);
+        }
+    }
+
+    private void goToSaddestEcho() {
+
     }
 
     private DayMonthYearPickerDialog createDayMonthYearDialog() {
@@ -173,6 +202,7 @@ public class MoodTrackerFragment extends Fragment {
             current.set(Calendar.DAY_OF_MONTH, selectedDate);
             newFragment.dismiss();
             changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
         });
 
         return newFragment;
@@ -187,6 +217,7 @@ public class MoodTrackerFragment extends Fragment {
             current.set(Calendar.DAY_OF_MONTH, selectedDate);
             newFragment.dismiss();
             changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
         });
 
         return newFragment;
@@ -201,6 +232,7 @@ public class MoodTrackerFragment extends Fragment {
             current.set(Calendar.DAY_OF_MONTH, selectedDate);
             newFragment.dismiss();
             changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
         });
 
         return newFragment;

@@ -86,7 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="263dp"
                     android:contentDescription="@string/mood_distribution"
-                    android:src="@drawable/drw_your_moods" />
+                    android:src="@drawable/img_your_moods" />
 
             </LinearLayout>
 
@@ -129,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="149dp"
                     android:contentDescription="@string/mood_image"
-                    android:src="@drawable/ic_drw_mood_distribution" />
+                    android:src="@drawable/img_mood_distribution" />
 
             </LinearLayout>
 
