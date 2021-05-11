@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drw_premium_background_bottom_circle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/drw_premium_background_top_circle" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/drw_premium_background_full_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/page_title"
+        style="@style/Echoes.ActionBar.TitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="25dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name_premium"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/get_premium_text"
+        style="@style/Echoes.Premium.Call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/premium_call"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_title" />
+
+    <TextView
+        android:id="@+id/price_text"
+        style="@style/Echoes.Premium.Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/get_premium_text" />
+
+    <TextView
+        android:id="@+id/cancel_text"
+        style="@style/Echoes.Premium.Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/cancel_premium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price_text" />
+
+    <TextView
+        android:id="@+id/premium_explanation"
+        style="@style/Echoes.Premium.Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/premium_advantages"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cancel_text"
+        app:layout_constraintWidth_max="250dp" />
+
+    <Button
+        android:id="@+id/premium_button"
+        style="@style/Echoes.SecondaryButtonStyle"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/drw_secondary_button"
+        android:text="@string/join_now"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/premium_explanation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

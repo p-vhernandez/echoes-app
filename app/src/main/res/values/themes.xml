@@ -1,16 +1,289 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Echoes" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+    <!--    <style name="Theme.Echoes" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
+    <!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+    <!--        <item name="colorPrimary">@color/purple_500</item>-->
+    <!--        <item name="colorPrimaryVariant">@color/purple_700</item>-->
+    <!--        <item name="colorOnPrimary">@color/white</item>-->
+    <!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+    <!--        <item name="colorSecondary">@color/teal_200</item>-->
+    <!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+    <!--        <item name="colorOnSecondary">@color/black</item>-->
+    <!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+    <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+    <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--    </style>-->
+
+    <style name="Theme.Echoes" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/blue_accent</item>
+        <item name="colorPrimaryVariant">@color/blue_accent_dark</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorSecondary">@color/purple_accent</item>
+        <item name="colorSecondaryVariant">@color/putple_accent_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
     </style>
+
+    <style name="Theme.Echoes.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Echoes.ActionBarStyle" parent="Theme.MaterialComponents.Light">
+        <item name="backgroundColor">@color/white</item>
+        <item name="elevation">0dp</item>
+        <item name="android:titleTextStyle">@style/Echoes.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Echoes.BottomNavigationBar" parent="Widget.Design.BottomNavigationView">
+        <item name="itemIconTint">@drawable/drw_tab_color</item>
+        <item name="itemTextColor">@drawable/drw_tab_color</item>
+    </style>
+
+    <style name="Echoes.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+
+    <style name="EchoTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+    </style>
+
+    <style name="EchoDate" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Audio.Guidance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+    </style>
+
+    <style name="EchoLocation" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray_text</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="MainButtonStyle.MainButtonText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Echoes.MainButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/blue_accent</item>
+        <item name="android:radius">50dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+    </style>
+
+    <style name="Echoes.AcceptButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/blue_accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:shadowColor">@color/transparent</item>
+    </style>
+
+    <style name="Echoes.CancelButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="backgroundTint">@color/transparent</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:shadowColor">@color/transparent</item>
+    </style>
+
+    <style name="EchoesAppName" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="Echoes.Premium.Call" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+
+    <style name="Echoes.Premium.Price" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/purple_accent</item>
+        <item name="android:textSize">44sp</item>
+        <item name="fontFamily">@font/inter_extra_bold</item>
+    </style>
+
+    <style name="Echoes.Premium.Cancel" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.SecondaryButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/purple_accent</item>
+        <item name="android:radius">50dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Echoes.Label.Unselected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Label.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Splash.Text" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/splash_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_light</item>
+    </style>
+
+    <style name="EchoesCreationSubsection" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="EchoesMoodLabel" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_mood_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+    </style>
+
+    <style name="Echoes.SpinnerStyle" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="background">@drawable/drw_background_spinner</item>
+        <item name="android:textColor">@color/label_active</item>
+    </style>
+
+    <style name="Echoes.IconButtonStyle" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="backgroundTint">@color/bg_gray</item>
+        <item name="android:radius">50dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:drawableRight">@drawable/ic_chevron_down</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Location.Search" parent="Widget.AppCompat.EditText">
+        <item name="android:drawableStart">@drawable/ic_search_location</item>
+        <item name="android:padding">5dp</item>
+        <item name="hintTextAppearance">@style/Echoes.Location.Search.Hint</item>
+        <item name="textInputStyle">@style/Echoes.Location.Search.Input</item>
+        <item name="hintTextColor">@color/splash_text</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/search</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Hint" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/splash_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Location.Search.Input" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Tags.FriendName" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Tags.Chips" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="backgroundColor">@color/purple_accent_12</item>
+        <item name="android:drawableLeft">@drawable/drw_tag_chip_icon</item>
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Echoes.Location.Current" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Echoes.Text.Title" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="android:hint">@string/add_title</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Echoes.Text.Description" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">5dp</item>
+        <item name="hintTextColor">@color/label_gray_80</item>
+        <item name="android:textColor">@color/label_active</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:hint">@string/add_description</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Echoes.Date.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/label_active</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Day" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Weekday" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_gray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Today" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="background">@drawable/drw_date_today_circle</item>
+    </style>
+
+    <style name="Echoes.Date.Calendar.Selected" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/putple_accent_dark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="background">@drawable/drw_day_selected_circle</item>
+    </style>
+
+    <style name="PickerDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/label_active</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
 </resources>

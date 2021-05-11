@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF111111</color>
+    <color name="blue_accent">#00A896</color>
+    <color name="blue_accent_dark">#00665c</color>
+    <color name="purple_accent">#2A00A2</color>
+    <color name="purple_accent_12">#1F2A00A2</color>
+    <color name="putple_accent_dark">#220080</color>
+
+    <color name="gray_text">#B3111111</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#ffffffff</color>
+    <color name="colorPrimaryDark">#ffffffff</color>
+    <color name="colorSecondary">#ff111111</color>
+    <color name="colorSecondaryDark">#ff111111</color>
+    <color name="colorAccent">#00A896</color>
+    <color name="colorAccent_12">#1F00A896</color>
+
+    <color name="gradient_start">#DFFFF6</color>
+    <color name="gradient_end">#E4DAFF</color>
+
+    <color name="light_gray">#F5F5F5</color>
+    <color name="label_mood_gray">#4E4B66</color>
+    <color name="bg_gray">#EFF0F6</color>
+    <color name="label_gray">#6E7191</color>
+    <color name="label_gray_12">#1F6E7191</color>
+    <color name="label_gray_50">#806E7191</color>
+    <color name="label_gray_80">#CC6E7191</color>
+    <color name="label_active">#14142B</color>
+    <color name="splash_text">#34435E</color>
+
+    <color name="red_audio">#EB5757</color>
+    
+    <!-- Chips blue -->
+    <color name="bg_blue">#82E9FF</color>
+    <color name="label_blue">#076377</color>
+    <!-- Chips green -->
+    <color name="bg_green">#42DBCB</color>
+    <color name="label_green">#005C52</color>
+
+    <color name="label_tab">#4E4B66</color>
+
 </resources>
