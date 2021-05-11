@@ -18,12 +18,13 @@ import com.hcip.team.three.echoes.R;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class MonthYearPickerDialog extends DialogFragment {
+public class DayMonthYearPickerDialog extends DialogFragment {
 
     private DatePickerDialog.OnDateSetListener listener;
 
     private int daysOfMonth = 31;
 
+    private NumberPicker dayPicker;
     private NumberPicker monthPicker;
     private NumberPicker yearPicker;
 
@@ -40,13 +41,18 @@ public class MonthYearPickerDialog extends DialogFragment {
 
         Calendar cal = Calendar.getInstance();
 
-        View dialog = inflater.inflate(R.layout.custom_layout_monthyear_picker_dialog, null);
+        View dialog = inflater.inflate(R.layout.custom_layout_daymonthyear_picker_dialog, null);
 
+        dayPicker = dialog.findViewById(R.id.picker_day);
         monthPicker = dialog.findViewById(R.id.picker_month);
         yearPicker = dialog.findViewById(R.id.picker_year);
 
         final Button pbutton = dialog.findViewById(R.id.button_ok);
         final Button nbutton = dialog.findViewById(R.id.button_cancel);
+
+        dayPicker.setMinValue(1);
+        dayPicker.setMaxValue(daysOfMonth);
+        dayPicker.setValue(cal.get(Calendar.DAY_OF_MONTH));
 
         monthPicker.setMinValue(1);
         monthPicker.setMaxValue(12);
@@ -64,9 +70,11 @@ public class MonthYearPickerDialog extends DialogFragment {
                 case 10:
                 case 12:
                     daysOfMonth = 31;
+                    dayPicker.setMaxValue(daysOfMonth);
                     break;
                 case 2:
                     daysOfMonth = 28;
+                    dayPicker.setMaxValue(daysOfMonth);
                     break;
 
                 case 4:
@@ -74,6 +82,7 @@ public class MonthYearPickerDialog extends DialogFragment {
                 case 9:
                 case 11:
                     daysOfMonth = 30;
+                    dayPicker.setMaxValue(daysOfMonth);
                     break;
             }
 
@@ -88,6 +97,7 @@ public class MonthYearPickerDialog extends DialogFragment {
             try {
                 if (isLeapYear(picker.getValue())) {
                     daysOfMonth = 29;
+                    dayPicker.setMaxValue(daysOfMonth);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -95,8 +105,8 @@ public class MonthYearPickerDialog extends DialogFragment {
         });
 
         builder.setView(dialog);
-        pbutton.setOnClickListener(view -> listener.onDateSet(null, yearPicker.getValue(), monthPicker.getValue(), cal.get(Calendar.DAY_OF_MONTH)));
-        nbutton.setOnClickListener(view -> Objects.requireNonNull(MonthYearPickerDialog.this.getDialog()).cancel());
+        pbutton.setOnClickListener(view -> listener.onDateSet(null, yearPicker.getValue(), monthPicker.getValue(), dayPicker.getValue()));
+        nbutton.setOnClickListener(view -> Objects.requireNonNull(DayMonthYearPickerDialog.this.getDialog()).cancel());
 
         return builder.create();
     }

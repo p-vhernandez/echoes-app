@@ -18,13 +18,12 @@ import com.hcip.team.three.echoes.R;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class MonthYearPickerDialog extends DialogFragment {
+public class YearPickerDialog extends DialogFragment {
 
     private DatePickerDialog.OnDateSetListener listener;
 
     private int daysOfMonth = 31;
 
-    private NumberPicker monthPicker;
     private NumberPicker yearPicker;
 
     public void setListener(DatePickerDialog.OnDateSetListener listener) {
@@ -40,44 +39,12 @@ public class MonthYearPickerDialog extends DialogFragment {
 
         Calendar cal = Calendar.getInstance();
 
-        View dialog = inflater.inflate(R.layout.custom_layout_monthyear_picker_dialog, null);
+        View dialog = inflater.inflate(R.layout.custom_layout_year_picker_dialog, null);
 
-        monthPicker = dialog.findViewById(R.id.picker_month);
         yearPicker = dialog.findViewById(R.id.picker_year);
 
         final Button pbutton = dialog.findViewById(R.id.button_ok);
         final Button nbutton = dialog.findViewById(R.id.button_cancel);
-
-        monthPicker.setMinValue(1);
-        monthPicker.setMaxValue(12);
-        monthPicker.setValue(cal.get(Calendar.MONTH) + 1);
-        monthPicker.setDisplayedValues(new String[]{"Jan", "Feb", "Mar", "Apr", "May", "June", "July",
-                "Aug", "Sep", "Oct", "Nov", "Dec"});
-
-        monthPicker.setOnValueChangedListener((picker, oldVal, newVal) -> {
-            switch (newVal) {
-                case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
-                    daysOfMonth = 31;
-                    break;
-                case 2:
-                    daysOfMonth = 28;
-                    break;
-
-                case 4:
-                case 6:
-                case 9:
-                case 11:
-                    daysOfMonth = 30;
-                    break;
-            }
-
-        });
 
         int year = cal.get(Calendar.YEAR);
         yearPicker.setMinValue(1900);
@@ -95,8 +62,8 @@ public class MonthYearPickerDialog extends DialogFragment {
         });
 
         builder.setView(dialog);
-        pbutton.setOnClickListener(view -> listener.onDateSet(null, yearPicker.getValue(), monthPicker.getValue(), cal.get(Calendar.DAY_OF_MONTH)));
-        nbutton.setOnClickListener(view -> Objects.requireNonNull(MonthYearPickerDialog.this.getDialog()).cancel());
+        pbutton.setOnClickListener(view -> listener.onDateSet(null, yearPicker.getValue(), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)));
+        nbutton.setOnClickListener(view -> Objects.requireNonNull(YearPickerDialog.this.getDialog()).cancel());
 
         return builder.create();
     }
