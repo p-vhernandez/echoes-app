@@ -1,6 +1,7 @@
 package com.hcip.team.three.echoes.fragments.display;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
+import com.hcip.team.three.echoes.activities.DetailsActivity;
 import com.hcip.team.three.echoes.utils.pickers.DayMonthYearPickerDialog;
 import com.hcip.team.three.echoes.utils.pickers.MonthYearPickerDialog;
 import com.hcip.team.three.echoes.utils.pickers.YearPickerDialog;
@@ -53,6 +55,9 @@ public class MoodTrackerFragment extends Fragment {
     private static final String TXT_MONTHLY = "Monthly";
     private static final String TXT_DAILY = "Daily";
 
+    private View saddestEcho;
+    private View happiesttEcho;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
@@ -81,6 +86,9 @@ public class MoodTrackerFragment extends Fragment {
         moodStats = fragmentView.findViewById(R.id.mood_stats);
         moodGraph = fragmentView.findViewById(R.id.mood_graph);
         moodHighlights = fragmentView.findViewById(R.id.mood_highlights);
+
+        saddestEcho = fragmentView.findViewById(R.id.saddest_moment);
+        happiesttEcho = fragmentView.findViewById(R.id.happiest_moment);
 
         changeButtonsText(TXT_YEARLY);
         setUpAdapters();
@@ -181,16 +189,24 @@ public class MoodTrackerFragment extends Fragment {
 
     private void setHighlightListener(boolean clickable) {
         if (clickable) {
-            moodHighlights.setOnClickListener(view -> {
-                goToSaddestEcho();
-            });
+            saddestEcho.setOnClickListener(view -> goToSaddestEcho());
+            happiesttEcho.setOnClickListener(view -> goToHappiestEcho());
         } else {
-            moodHighlights.setOnClickListener(null);
+            saddestEcho.setOnClickListener(null);
+            happiesttEcho.setOnClickListener(null);
         }
     }
 
     private void goToSaddestEcho() {
+        Intent intent = new Intent(getContext(), DetailsActivity.class);
+        intent.putExtra("echo", "saddest");
+        Objects.requireNonNull(getActivity()).startActivity(intent);
+    }
 
+    private void goToHappiestEcho() {
+        Intent intent = new Intent(getContext(), DetailsActivity.class);
+        intent.putExtra("echo", "happiest");
+        Objects.requireNonNull(getActivity()).startActivity(intent);
     }
 
     private DayMonthYearPickerDialog createDayMonthYearDialog() {
