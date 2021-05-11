@@ -30,6 +30,8 @@ public class EchoesApplication extends Application {
     private Friend user;
 
     private Echo newEcho;
+    private Echo saddestEcho;
+    private Echo happiestEcho;
 
     public void startEchoCreation() {
         newEcho = new Echo(echoes.size(), user.getId(), new Date());
@@ -182,4 +184,19 @@ public class EchoesApplication extends Application {
         return simpleDateFormat.format(date);
     }
 
+    public Echo getSaddestEcho() {
+        return saddestEcho;
+    }
+
+    public void setSaddestEcho(Echo saddestEcho) {
+        this.saddestEcho = saddestEcho;
+    }
+
+    public Echo getHappiestEcho() {
+        return happiestEcho;
+    }
+
+    public void setHappiestEcho(Echo happiestEcho) {
+        this.happiestEcho = happiestEcho;
+    }
 }

@@ -35,6 +35,10 @@
             android:name=".activities.EchoOverview"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:windowSoftInputMode="adjustPan" />
+
     </application>
 
 </manifest>

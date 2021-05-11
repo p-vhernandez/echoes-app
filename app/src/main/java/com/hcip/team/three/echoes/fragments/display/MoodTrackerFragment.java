@@ -1,16 +1,14 @@
 package com.hcip.team.three.echoes.fragments.display;
 
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -20,10 +18,12 @@ import androidx.fragment.app.Fragment;
 
 import com.hcip.team.three.echoes.EchoesApplication;
 import com.hcip.team.three.echoes.R;
+import com.hcip.team.three.echoes.activities.DetailsActivity;
+import com.hcip.team.three.echoes.utils.pickers.DayMonthYearPickerDialog;
 import com.hcip.team.three.echoes.utils.pickers.MonthYearPickerDialog;
+import com.hcip.team.three.echoes.utils.pickers.YearPickerDialog;
 
 import java.text.SimpleDateFormat;
-import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -55,6 +55,9 @@ public class MoodTrackerFragment extends Fragment {
     private static final String TXT_MONTHLY = "Monthly";
     private static final String TXT_DAILY = "Daily";
 
+    private View saddestEcho;
+    private View happiesttEcho;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
@@ -84,6 +87,9 @@ public class MoodTrackerFragment extends Fragment {
         moodGraph = fragmentView.findViewById(R.id.mood_graph);
         moodHighlights = fragmentView.findViewById(R.id.mood_highlights);
 
+        saddestEcho = fragmentView.findViewById(R.id.saddest_moment);
+        happiesttEcho = fragmentView.findViewById(R.id.happiest_moment);
+
         changeButtonsText(TXT_YEARLY);
         setUpAdapters();
         setUpListeners();
@@ -107,11 +113,11 @@ public class MoodTrackerFragment extends Fragment {
                         break;
                     case 1:
                         changeButtonsText(TXT_MONTHLY);
-                        changeImages(TXT_YEARLY);
+                        changeImages(TXT_MONTHLY);
                         break;
                     case 2:
                         changeButtonsText(TXT_DAILY);
-                        changeImages(TXT_YEARLY);
+                        changeImages(TXT_DAILY);
                         break;
                 }
             }
@@ -125,15 +131,16 @@ public class MoodTrackerFragment extends Fragment {
         btnFilterDate.setOnClickListener(view -> {
             switch (timeSlotSelected) {
                 case TXT_YEARLY:
-                    createDialogWithoutDateField().show(Objects.requireNonNull(getFragmentManager()), "MonthYearPickerDialog");
+                    createYearDialog().show(Objects.requireNonNull(getFragmentManager()), "MonthYearPickerDialog");
                     break;
                 case TXT_MONTHLY:
-                    //TODO
+                    createMonthYearDialog().show(Objects.requireNonNull(getFragmentManager()), "MonthYearPickerDialog");
                     break;
                 case TXT_DAILY:
-                    //TODO
+                    createDayMonthYearDialog().show(Objects.requireNonNull(getFragmentManager()), "MonthYearPickerDialog");
                     break;
             }
+
         });
     }
 
@@ -151,51 +158,98 @@ public class MoodTrackerFragment extends Fragment {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void changeImages(String type) {
         switch (type) {
             case TXT_YEARLY:
-                //TODO
+                moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods));
+                moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution));
+                moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights));
                 break;
             case TXT_MONTHLY:
-                //TODO
+                if (current.get(Calendar.MONTH) == Calendar.FEBRUARY) {
+                    moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods_feb));
+                    moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution_month_feb));
+                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month_feb));
+
+                    setHighlightListener(true);
+                } else {
+                    moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods_month));
+                    moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution_month));
+                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month));
+
+                    setHighlightListener(false);
+                }
                 break;
             case TXT_DAILY:
-                //TODO
+                // not prepared
                 break;
         }
     }
 
-    private MonthYearPickerDialog createDialogWithoutDateField() {
+    private void setHighlightListener(boolean clickable) {
+        if (clickable) {
+            saddestEcho.setOnClickListener(view -> goToSaddestEcho());
+            happiesttEcho.setOnClickListener(view -> goToHappiestEcho());
+        } else {
+            saddestEcho.setOnClickListener(null);
+            happiesttEcho.setOnClickListener(null);
+        }
+    }
+
+    private void goToSaddestEcho() {
+        Intent intent = new Intent(getContext(), DetailsActivity.class);
+        intent.putExtra("echo", "saddest");
+        Objects.requireNonNull(getActivity()).startActivity(intent);
+    }
+
+    private void goToHappiestEcho() {
+        Intent intent = new Intent(getContext(), DetailsActivity.class);
+        intent.putExtra("echo", "happiest");
+        Objects.requireNonNull(getActivity()).startActivity(intent);
+    }
+
+    private DayMonthYearPickerDialog createDayMonthYearDialog() {
+        DayMonthYearPickerDialog newFragment = new DayMonthYearPickerDialog();
+
+        newFragment.setListener((datePicker, selectedYear, selectedMonth, selectedDate) -> {
+            current.set(Calendar.YEAR, selectedYear);
+            current.set(Calendar.MONTH, selectedMonth - 1);
+            current.set(Calendar.DAY_OF_MONTH, selectedDate);
+            newFragment.dismiss();
+            changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
+        });
+
+        return newFragment;
+    }
+
+    private MonthYearPickerDialog createMonthYearDialog() {
         MonthYearPickerDialog newFragment = new MonthYearPickerDialog();
 
-        try {
-            java.lang.reflect.Field[] datePickerDialogFields = newFragment.getClass().getDeclaredFields();
+        newFragment.setListener((datePicker, selectedYear, selectedMonth, selectedDate) -> {
+            current.set(Calendar.YEAR, selectedYear);
+            current.set(Calendar.MONTH, selectedMonth - 1);
+            current.set(Calendar.DAY_OF_MONTH, selectedDate);
+            newFragment.dismiss();
+            changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
+        });
 
-            for (java.lang.reflect.Field datePickerDialogField : datePickerDialogFields) {
-                if (datePickerDialogField.getName().equals("mDatePicker")) {
-                    datePickerDialogField.setAccessible(true);
-                    DatePicker datePicker = (DatePicker) datePickerDialogField.get(newFragment);
-                    java.lang.reflect.Field[] datePickerFields = datePickerDialogField.getType().getDeclaredFields();
+        return newFragment;
+    }
 
-                    for (java.lang.reflect.Field datePickerField : datePickerFields) {
+    private YearPickerDialog createYearDialog() {
+        YearPickerDialog newFragment = new YearPickerDialog();
 
-                        if ("mDaySpinner".equals(datePickerField.getName())) {
-                            datePickerField.setAccessible(true);
-                            Object dayPicker = datePickerField.get(datePicker);
-                            ((View) Objects.requireNonNull(dayPicker)).setVisibility(View.GONE);
-                        }
-                    }
-                }
-            }
-
-            newFragment.setListener((datePicker, selectedYear, selectedMonth, selectedDate) -> {
-                current.set(selectedYear, selectedMonth, selectedDate);
-                newFragment.dismiss();
-                changeButtonsText(timeSlotSelected);
-            });
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        newFragment.setListener((datePicker, selectedYear, selectedMonth, selectedDate) -> {
+            current.set(Calendar.YEAR, selectedYear);
+            current.set(Calendar.MONTH, selectedMonth - 1);
+            current.set(Calendar.DAY_OF_MONTH, selectedDate);
+            newFragment.dismiss();
+            changeButtonsText(timeSlotSelected);
+            changeImages(timeSlotSelected);
+        });
 
         return newFragment;
     }

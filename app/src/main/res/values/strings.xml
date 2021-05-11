@@ -68,6 +68,7 @@
     <string name="year">Year</string>
     <string name="day">Day</string>
     <string name="month">Month</string>
+    <string name="private_echo">Private echo</string>
 
     <string-array name="locations_first_echo">
         <item>Palawan, Philippines</item>
