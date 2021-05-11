@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:minWidth="300dp"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/labels"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/colorAccent"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/day_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="@string/day"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/month_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="@string/month"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/year_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:text="@string/year"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pickers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labels">
+
+            <NumberPicker
+                android:id="@+id/picker_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:visibility="visible" />
+
+            <NumberPicker
+                android:id="@+id/picker_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:descendantFocusability="blocksDescendants"
+                android:visibility="visible"
+                tools:ignore="RtlCompat">
+
+            </NumberPicker>
+
+            <NumberPicker
+                android:id="@+id/picker_year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:descendantFocusability="blocksDescendants">
+
+            </NumberPicker>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_ok"
+            style="@style/Echoes.AcceptButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ok"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pickers" />
+
+        <Button
+            android:id="@+id/button_cancel"
+            style="@style/Echoes.CancelButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/cancel"
+            app:layout_constraintEnd_toStartOf="@id/button_ok"
+            app:layout_constraintTop_toBottomOf="@id/pickers" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_cancel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

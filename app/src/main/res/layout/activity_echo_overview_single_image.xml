@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/overview_toolbar"
+        android:id="@+id/details_toolbar"
         layout="@layout/custom_overview_toolbar"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -19,7 +19,7 @@
         android:orientation="horizontal"
         android:padding="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/overview_toolbar">
+        app:layout_constraintTop_toBottomOf="@id/details_toolbar">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/creator_image_card"

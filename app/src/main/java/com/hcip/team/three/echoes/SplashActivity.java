@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,10 @@ public class SplashActivity extends AppCompatActivity {
                 generateEchoes();
                 generateFriends();
                 generateMoods();
+
+                generateSaddestEcho();
+                generateHappiestEcho();
+
                 echoesApplication.setUser();
 
                 goToEchoesScreen();
@@ -104,6 +109,35 @@ public class SplashActivity extends AppCompatActivity {
         moods.add(new Mood(7, echoesApplication.imageEncoder(R.drawable.ic_mood_exhausted, true), "Exhausted"));
 
         echoesApplication.setMoods(moods);
+    }
+
+    private void generateSaddestEcho() {
+        Echo echo = new Echo(99, 9, echoesApplication.dateFromString("14/02/2021"));
+        echo.addImage(echoesApplication.imageEncoder(R.drawable.img_echo_saddest, false));
+        echo.setMood(5);
+        echo.setTitle("My hamster died");
+        echo.setLocation("Home");
+
+        echoesApplication.setSaddestEcho(echo);
+    }
+
+    private void generateHappiestEcho() {
+        Echo echo = new Echo(98, 9, echoesApplication.dateFromString("23/02/2021"));
+        echo.addImage(echoesApplication.imageEncoder(R.drawable.img_echo_happiest, false));
+        echo.setMood(3);
+        echo.setTitle("Mike's surprise party!");
+        echo.setLocation("Home");
+        echo.setDescription("The nicest surprise party ever! Thanks to all our friends I threw a birthday party for Mike to cheer him up, I feel so loved and joyful!");
+
+        ArrayList<Friend> tags = new ArrayList<>();
+        for (Friend friend : echoesApplication.getFriends()) {
+            if (friend.getId() == 3 || friend.getId() == 7 || friend.getId() == 1 || friend.getId() == 6) {
+                tags.add(friend);
+            }
+        }
+
+        echo.setTags(tags);
+        echoesApplication.setHappiestEcho(echo);
     }
 
     private void goToEchoesScreen() {
