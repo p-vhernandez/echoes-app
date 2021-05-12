@@ -34,6 +34,7 @@ public class EchoOverview extends AppCompatActivity {
     private TextView echoTitle;
     private TextView echoDate;
     private TextView echoLocation;
+    private TextView echoDescription;
 
     private ChipGroup tagsGroup;
 
@@ -76,6 +77,7 @@ public class EchoOverview extends AppCompatActivity {
         echoTitle = findViewById(R.id.echo_title);
         echoDate = findViewById(R.id.echo_date);
         echoLocation = findViewById(R.id.echo_location);
+        echoDescription = findViewById(R.id.echo_description);
 
         tagsGroup = findViewById(R.id.friends_chip);
         checkBoxPrivacy = findViewById(R.id.checkBox_privacy);
@@ -116,6 +118,12 @@ public class EchoOverview extends AppCompatActivity {
                 friendChip.setText(friend.getName());
                 tagsGroup.addView(friendChip);
             }
+        }
+
+        if (toOverview.getDescription() != null && !toOverview.getDescription().equals("")) {
+            echoDescription.setText(toOverview.getDescription());
+        } else {
+            echoDescription.setVisibility(View.GONE);
         }
     }
 
