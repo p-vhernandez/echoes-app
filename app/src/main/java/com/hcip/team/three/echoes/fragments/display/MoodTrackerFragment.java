@@ -170,7 +170,7 @@ public class MoodTrackerFragment extends Fragment {
                 if (current.get(Calendar.MONTH) == Calendar.FEBRUARY) {
                     moodStats.setImageDrawable(getResources().getDrawable(R.drawable.img_your_moods_feb));
                     moodGraph.setImageDrawable(getResources().getDrawable(R.drawable.img_mood_distribution_month_feb));
-                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month_feb));
+                    moodHighlights.setImageDrawable(getResources().getDrawable(R.drawable.img_highlights_month_feb_2));
 
                     setHighlightListener(true);
                 } else {
